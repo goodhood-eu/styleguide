@@ -1,5 +1,4 @@
 # Coding Style Guide
-====================
 
 ![Falling with style](http://www.quickmeme.com/img/dc/dc368e07a86a1f14baa5bbe47fa4fbe5a2ad9a9edc6b2413a76705773a1baa20.jpg)
 
@@ -10,6 +9,10 @@ This repository serves as a reference for our coding standards, and an introduct
 - [HTML](html.md)
 - [Jade](jade.md)
 * [Stylus](stylus.md)
+
+## Common section
+
+This answers generic questions regardless of language or technology.
 
 ## Table of Contents
   * [Tabs or Spaces?](#tabs-or-spaces)
@@ -60,18 +63,18 @@ Write the annotation on the line immediately above the code that the annotation 
 
 The annotation keyword should be followed by a colon and a space, and a descriptive note.
 
-```coffeescript
-  # FIXME: The client's current state should *not* affect payload processing.
-  resetClientState()
-  processPayload()
+```javascript
+  // FIXME: The client's current state should *not* affect payload processing.
+  resetClientState();
+  processPayload();
 ```
 
 If multiple lines are required by the description, indent subsequent lines with two spaces:
 
-```coffeescript
-  # TODO: Ensure that the value returned by this call falls within a certain
-  #   range, or throw an exception.
-  analyze()
+```javascript
+  // TODO: Ensure that the value returned by this call falls within a certain
+  //   range, or throw an exception.
+  analyze();
 ```
 
 Annotation types:
