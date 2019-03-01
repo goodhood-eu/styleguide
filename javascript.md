@@ -701,12 +701,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function foo(name, options, arguments) {
+    function (name, options, arguments) {
       // ...
     }
 
     // good
-    function foo(name, options, args) {
+    function (name, options, args) {
       // ...
     }
     ```
@@ -718,15 +718,18 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function concatenateAll() {
+    function () {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
     // good
-    function concatenateAll(...args) {
+    function (...args) {
       return args.join('');
     }
+
+    // best
+    (...args) => args.join('');
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
@@ -734,7 +737,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // really bad
-    function handleThings(opts) {
+    function (opts) {
       // No! We shouldn’t mutate function arguments.
       // Double bad: if opts is falsy it'll be set to an object which may
       // be what you want but it can introduce subtle bugs.
@@ -743,7 +746,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // still bad
-    function handleThings(opts) {
+    function (opts) {
       if (opts === void 0) {
         opts = {};
       }
@@ -751,7 +754,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // good
-    function handleThings(opts = {}) {
+    function (opts = {}) {
       // ...
     }
     ```
@@ -764,7 +767,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```javascript
     var b = 1;
     // bad
-    function count(a = b++) {
+    function (a = b++) {
       console.log(a);
     }
     count();  // 1
@@ -778,12 +781,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function handleThings(opts = {}, name) {
+    function (opts = {}, name) {
       // ...
     }
 
     // good
-    function handleThings(name, opts = {}) {
+    function (name, opts = {}) {
       // ...
     }
     ```
@@ -818,19 +821,14 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
-  - [7.12](#functions--mutate-params) Never mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
+  - [7.12](#functions--mutate-params) Try not to mutate parameters. eslint: [`no-param-reassign`](https://eslint.org/docs/rules/no-param-reassign.html)
 
     > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
     ```javascript
     // bad
-    function f1(obj) {
+    function (obj) {
       obj.key = 1;
-    }
-
-    // good
-    function f2(obj) {
-      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
     }
     ```
 
@@ -841,23 +839,23 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function f1(a) {
+    function (a) {
       a = 1;
       // ...
     }
 
-    function f2(a) {
+    function (a) {
       if (!a) { a = 1; }
       // ...
     }
 
     // good
-    function f3(a) {
+    function (a) {
       const b = a || 1;
       // ...
     }
 
-    function f4(a = 1) {
+    function (a = 1) {
       // ...
     }
     ```
