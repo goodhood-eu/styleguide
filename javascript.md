@@ -286,8 +286,6 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     // best
     const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-    /* or */
-    import has from 'has'; // https://www.npmjs.com/package/has
     // ...
     console.log(has.call(object, key));
     ```
@@ -354,7 +352,10 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // good
-    const itemsCopy = [...items];
+    const itemsCopy = items.slice();
+
+    // best
+    const anotherCopy = [...items];
     ```
 
   <a name="arrays--from"></a>
@@ -385,7 +386,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="arrays--mapping"></a>
-  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array.
+  - [4.6](#arrays--mapping) Use [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) instead of spread `...` for mapping over iterables, because it avoids creating an intermediate array. Use this for Map/Set etc.
 
     ```javascript
     // bad
@@ -406,7 +407,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     });
 
     // good
-    [1, 2, 3].map(x => x + 1);
+    [1, 2, 3].map((x) => (x + 1));
 
     // bad - no returned value means `acc` becomes undefined after the first iteration
     [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
@@ -463,11 +464,10 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     const arr = [[0, 1], [2, 3], [4, 5]];
 
     const objectInArray = [
-      {
-        id: 1,
-      },
+      { id: 1 },
       {
         id: 2,
+        anotherPropThatIsTooLong: 3,
       },
     ];
 
@@ -634,9 +634,9 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 ## Functions
 
   <a name="functions--declarations"></a><a name="7.1"></a>
-  - [7.1](#functions--declarations) Use named function expressions instead of function declarations. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
+  - [7.1](#functions--declarations) Prefer anonymous arrow functions assigned to variables. eslint: [`func-style`](https://eslint.org/docs/rules/func-style)
 
-    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to explicitly name the expression, regardless of whether or not the name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel). This eliminates any assumptions made about the Error’s call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+    > Why? It's shorter and more readable. The name is inferred from the containing variable (which is often the case in modern browsers or when using compilers such as Babel) and the stack traces contain the character and line in any case.
 
     ```javascript
     // bad
@@ -644,14 +644,19 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
       // ...
     }
 
-    // bad
-    const foo = function () {
+    // good
+    // lexical name distinguished from the variable-referenced invocation(s)
+    const short = function longUniqueMoreDescriptiveLexicalFoo() {
       // ...
     };
 
     // good
-    // lexical name distinguished from the variable-referenced invocation(s)
-    const short = function longUniqueMoreDescriptiveLexicalFoo() {
+    const foo = function () {
+      // ...
+    };
+
+    // best
+    const foo = () => {
       // ...
     };
     ```
