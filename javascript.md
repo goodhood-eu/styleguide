@@ -187,7 +187,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     const atom = {
       value: 1,
 
-      addValue: function(value) {
+      addValue: function (value) {
         return atom.value + value;
       },
     };
@@ -651,7 +651,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     };
 
     // good
-    const foo = function() {
+    const foo = function () {
       // ...
     };
 
@@ -668,7 +668,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // immediately-invoked function expression (IIFE)
-    (function() {
+    (function () {
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
@@ -701,12 +701,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function(name, options, arguments) {
+    function (name, options, arguments) {
       // ...
     }
 
     // good
-    function(name, options, args) {
+    function (name, options, args) {
       // ...
     }
     ```
@@ -718,13 +718,13 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function() {
+    function () {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
     // good
-    function(...args) {
+    function (...args) {
       return args.join('');
     }
 
@@ -737,7 +737,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // really bad
-    function(opts) {
+    function (opts) {
       // No! We shouldn’t mutate function arguments.
       // Double bad: if opts is falsy it'll be set to an object which may
       // be what you want but it can introduce subtle bugs.
@@ -746,7 +746,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // still bad
-    function(opts) {
+    function (opts) {
       if (opts === void 0) {
         opts = {};
       }
@@ -754,7 +754,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // good
-    function(opts = {}) {
+    function (opts = {}) {
       // ...
     }
     ```
@@ -767,7 +767,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```javascript
     var b = 1;
     // bad
-    function(a = b++) {
+    function (a = b++) {
       console.log(a);
     }
     count();  // 1
@@ -781,12 +781,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function(opts = {}, name) {
+    function (opts = {}, name) {
       // ...
     }
 
     // good
-    function(name, opts = {}) {
+    function (name, opts = {}) {
       // ...
     }
     ```
@@ -813,13 +813,13 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     // bad
     const f = function a(){};
     const g = function (){};
-    const g = function () {};
+
+    // ok
+    const h = function() {};
 
     // good
     const y = function a() {};
-
-    // best
-    const x = function() {};
+    const x = function () {};
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
@@ -829,7 +829,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function(obj) {
+    function (obj) {
       obj.key = 1;
     }
     ```
@@ -841,23 +841,23 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function(a) {
+    function (a) {
       a = 1;
       // ...
     }
 
-    function(a) {
+    function (a) {
       if (!a) { a = 1; }
       // ...
     }
 
     // good
-    function(a) {
+    function (a) {
       const b = a || 1;
       // ...
     }
 
-    function(a = 1) {
+    function (a = 1) {
       // ...
     }
     ```
@@ -888,14 +888,14 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function(bar,
+    function (bar,
               baz,
               quux) {
       // ...
     }
 
     // good
-    function(
+    function (
       bar,
       baz,
       quux,
@@ -929,7 +929,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    [1, 2, 3].map(function(x) {
+    [1, 2, 3].map(function (x) {
       const y = x + 1;
       return x * y;
     });
@@ -968,7 +968,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }));
 
     // No implicit return with side effects
-    const foo = function(callback) {
+    const foo = function (callback) {
       const val = callback();
       if (val === true) {
         // Do something if callback returns true
@@ -1091,7 +1091,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     function Queue(contents = []) {
       this.queue = [...contents];
     }
-    Queue.prototype.pop = function() {
+    Queue.prototype.pop = function () {
       const value = this.queue[0];
       this.queue.splice(0, 1);
       return value;
@@ -1122,7 +1122,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
       Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function() {
+    PeekableQueue.prototype.peek = function () {
       return this.queue[0];
     };
 
@@ -1139,12 +1139,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    Jedi.prototype.jump = function() {
+    Jedi.prototype.jump = function () {
       this.jumping = true;
       return true;
     };
 
-    Jedi.prototype.setHeight = function(height) {
+    Jedi.prototype.setHeight = function (height) {
       this.height = height;
     };
 
@@ -1172,7 +1172,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It’s okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) It’s okay to write a custom `toXXX()` method, just make sure it works successfully and causes no side effects.
 
     ```javascript
     class Jedi {
@@ -1230,16 +1230,6 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
       bar() { return 1; }
       bar() { return 2; }
     }
-
-    // good
-    class Foo {
-      bar() { return 1; }
-    }
-
-    // good
-    class Foo {
-      bar() { return 2; }
-    }
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1247,16 +1237,14 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 ## Modules
 
   <a name="modules--use-them"></a><a name="10.1"></a>
-  - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
-
-    > Why? Modules are the future, let’s start using the future now.
+  - [10.1](#modules--use-them) Prefer modules (`import`/`export`) over a non-standard module system.
 
     ```javascript
-    // bad
+    // ok
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
     module.exports = AirbnbStyleGuide.es6;
 
-    // ok
+    // better
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     export default AirbnbStyleGuide.es6;
 
@@ -1278,24 +1266,8 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     import AirbnbStyleGuide from './AirbnbStyleGuide';
     ```
 
-  <a name="modules--no-export-from-import"></a><a name="10.3"></a>
-  - [10.3](#modules--no-export-from-import) And do not export directly from an import.
-
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
-
-    ```javascript
-    // bad
-    // filename es6.js
-    export { es6 as default } from './AirbnbStyleGuide';
-
-    // good
-    // filename es6.js
-    import { es6 } from './AirbnbStyleGuide';
-    export default es6;
-    ```
-
   <a name="modules--no-duplicate-imports"></a>
-  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
+  - [10.3](#modules--no-duplicate-imports) Only import from a path in one place.
  eslint: [`no-duplicate-imports`](https://eslint.org/docs/rules/no-duplicate-imports)
     > Why? Having multiple lines that import from the same path can make code harder to maintain.
 
@@ -1316,7 +1288,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="modules--no-mutable-exports"></a>
-  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
+  - [10.4](#modules--no-mutable-exports) Do not export mutable bindings.
  eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
     > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
 
@@ -1331,20 +1303,20 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
+  - [10.5](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
     > Why? To encourage more files that only ever export one thing, which is better for readability and maintainability.
 
     ```javascript
     // bad
-    export function foo() {}
+    export function () {}
 
     // good
-    export default function foo() {}
+    export default function () {}
     ```
 
   <a name="modules--imports-first"></a>
-  - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
+  - [10.6](#modules--imports-first) Put all `import`s above non-import statements.
  eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
     > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
 
@@ -1363,7 +1335,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="modules--multiline-imports-over-newlines"></a>
-  - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
+  - [10.7](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
 
     > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
 
@@ -1382,7 +1354,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="modules--no-webpack-loader-syntax"></a>
-  - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
+  - [10.8](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
     > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
 
@@ -1401,7 +1373,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 ## Iterators and Generators
 
   <a name="iterators--nope"></a><a name="11.1"></a>
-  - [11.1](#iterators--nope) Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Prefer JavaScript’s higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](https://eslint.org/docs/rules/no-restricted-syntax)
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
@@ -1425,7 +1397,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     sum === 15;
 
     // best (use the functional force)
-    const sum = numbers.reduce((total, num) => total + num, 0);
+    const sum = numbers.reduce((total, num) => (total + num), 0);
     sum === 15;
 
     // bad
@@ -1539,7 +1511,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
       age: 28,
     };
 
-    function getProp(prop) {
+    const getProp = function (prop) {
       return luke[prop];
     }
 
@@ -1561,7 +1533,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 ## Variables
 
   <a name="variables--const"></a><a name="13.1"></a>
-  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
+  - [13.1](#variables--const) Always use `const` or `let` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. eslint: [`no-undef`](https://eslint.org/docs/rules/no-undef) [`prefer-const`](https://eslint.org/docs/rules/prefer-const)
 
     ```javascript
     // bad
@@ -1627,7 +1599,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad - unnecessary function call
-    function checkName(hasName) {
+    const checkName = function (hasName) {
       const name = getName();
 
       if (hasName === 'test') {
@@ -1643,7 +1615,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // good
-    function checkName(hasName) {
+    const checkName = function (hasName) {
       if (hasName === 'test') {
         return false;
       }
@@ -1837,7 +1809,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
       anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
+      var anonymous = function () {
         console.log('anonymous function expression');
       };
     }
@@ -3178,7 +3150,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     // bad
     function foo() {
       const self = this;
-      return function() {
+      return function () {
         console.log(self);
       };
     }
@@ -3186,7 +3158,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     // bad
     function foo() {
       const that = this;
-      return function() {
+      return function () {
         console.log(that);
       };
     }
@@ -3531,11 +3503,6 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
-  <a name="tc39-proposals"></a>
-  - [28.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
-
-    > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
-
 **[⬆ back to top](#table-of-contents)**
 
 ## Standard Library
@@ -3599,268 +3566,3 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
 
 **[⬆ back to top](#table-of-contents)**
-
-## Performance
-
-  - [On Layout & Web Performance](https://www.kellegous.com/j/2013/01/26/layout-performance/)
-  - [String vs Array Concat](https://jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](https://jsperf.com/try-catch-in-loop-cost)
-  - [Bang Function](https://jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](https://jsperf.com/jquery-find-vs-context-sel/13)
-  - [innerHTML vs textContent for script text](https://jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](https://jsperf.com/ya-string-concat)
-  - [Are Javascript functions like `map()`, `reduce()`, and `filter()` optimized for traversing arrays?](https://www.quora.com/JavaScript-programming-language-Are-Javascript-functions-like-map-reduce-and-filter-already-optimized-for-traversing-array/answer/Quildreen-Motta)
-  - Loading...
-
-**[⬆ back to top](#table-of-contents)**
-
-## Resources
-
-**Learning ES6+**
-
-  - [Latest ECMA spec](https://tc39.github.io/ecma262/)
-  - [ExploringJS](http://exploringjs.com/)
-  - [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
-  - [Comprehensive Overview of ES6 Features](http://es6-features.org/)
-
-**Read This**
-
-  - [Standard ECMA-262](http://www.ecma-international.org/ecma-262/6.0/index.html)
-
-**Tools**
-
-  - Code Style Linters
-    - [ESlint](https://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
-    - [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
-  - Neutrino Preset - [@neutrinojs/airbnb](https://neutrinojs.org/packages/airbnb/)
-
-**Other Style Guides**
-
-  - [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml)
-  - [jQuery Core Style Guidelines](https://contribute.jquery.org/style-guide/js/)
-  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwaldron/idiomatic.js)
-  - [StandardJS](https://standardjs.com)
-
-**Other Styles**
-
-  - [Naming this in nested functions](https://gist.github.com/cjohansen/4135065) - Christian Johansen
-  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52) - Ross Allen
-  - [Popular JavaScript Coding Conventions on GitHub](http://sideeffect.kr/popularconvention/#javascript) - JeongHoon Byun
-  - [Multiple var statements in JavaScript, not superfluous](http://benalman.com/news/2012/05/multiple-var-statements-javascript/) - Ben Alman
-
-**Further Reading**
-
-  - [Understanding JavaScript Closures](https://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
-  - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
-  - [You Might Not Need jQuery](http://youmightnotneedjquery.com/) - Zack Bloom & Adam Schwartz
-  - [ES6 Features](https://github.com/lukehoban/es6features) - Luke Hoban
-  - [Frontend Guidelines](https://github.com/bendc/frontend-guidelines) - Benjamin De Cock
-
-**Books**
-
-  - [JavaScript: The Good Parts](https://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
-  - [JavaScript Patterns](https://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
-  - [Pro JavaScript Design Patterns](https://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
-  - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](https://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
-  - [Maintainable JavaScript](https://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
-  - [JavaScript Web Applications](https://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
-  - [Pro JavaScript Techniques](https://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
-  - [Smashing Node.js: JavaScript Everywhere](https://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
-  - [Secrets of the JavaScript Ninja](https://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
-  - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
-  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
-  - [JSBooks](http://jsbooks.revolunet.com/) - Julien Bouquillon
-  - [Third Party JavaScript](https://www.manning.com/books/third-party-javascript) - Ben Vinegar and Anton Kovalyov
-  - [Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript](http://amzn.com/0321812182) - David Herman
-  - [Eloquent JavaScript](http://eloquentjavascript.net/) - Marijn Haverbeke
-  - [You Don’t Know JS: ES6 & Beyond](http://shop.oreilly.com/product/0636920033769.do) - Kyle Simpson
-
-**Blogs**
-
-  - [JavaScript Weekly](http://javascriptweekly.com/)
-  - [JavaScript, JavaScript...](https://javascriptweblog.wordpress.com/)
-  - [Bocoup Weblog](https://bocoup.com/weblog)
-  - [Adequately Good](http://www.adequatelygood.com/)
-  - [NCZOnline](https://www.nczonline.net/)
-  - [Perfection Kills](http://perfectionkills.com/)
-  - [Ben Alman](http://benalman.com/)
-  - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
-  - [nettuts](http://code.tutsplus.com/?s=javascript)
-
-**Podcasts**
-
-  - [JavaScript Air](https://javascriptair.com/)
-  - [JavaScript Jabber](https://devchat.tv/js-jabber/)
-
-**[⬆ back to top](#table-of-contents)**
-
-## In the Wild
-
-  This is a list of organizations that are using this style guide. Send us a pull request and we'll add you to the list.
-
-  - **123erfasst**: [123erfasst/javascript](https://github.com/123erfasst/javascript)
-  - **3blades**: [3Blades](https://github.com/3blades)
-  - **4Catalyzer**: [4Catalyzer/javascript](https://github.com/4Catalyzer/javascript)
-  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
-  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **AltSchool**: [AltSchool/javascript](https://github.com/AltSchool/javascript)
-  - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
-  - **Ascribe**: [ascribe/javascript](https://github.com/ascribe/javascript)
-  - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
-  - **Avant**: [avantcredit/javascript](https://github.com/avantcredit/javascript)
-  - **Axept**: [axept/javascript](https://github.com/axept/javascript)
-  - **BashPros**: [BashPros/javascript](https://github.com/BashPros/javascript)
-  - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
-  - **Bisk**: [bisk](https://github.com/Bisk/)
-  - **Bonhomme**: [bonhommeparis/javascript](https://github.com/bonhommeparis/javascript)
-  - **Brainshark**: [brainshark/javascript](https://github.com/brainshark/javascript)
-  - **CaseNine**: [CaseNine/javascript](https://github.com/CaseNine/javascript)
-  - **Cerner**: [Cerner](https://github.com/cerner/)
-  - **Chartboost**: [ChartBoost/javascript-style-guide](https://github.com/ChartBoost/javascript-style-guide)
-  - **ComparaOnline**: [comparaonline/javascript](https://github.com/comparaonline/javascript-style-guide)
-  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
-  - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
-  - **DoSomething**: [DoSomething/eslint-config](https://github.com/DoSomething/eslint-config)
-  - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
-  - **Drupal**: [www.drupal.org](https://www.drupal.org/project/drupal)
-  - **Ecosia**: [ecosia/javascript](https://github.com/ecosia/javascript)
-  - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
-  - **Evolution Gaming**: [evolution-gaming/javascript](https://github.com/evolution-gaming/javascript)
-  - **EvozonJs**: [evozonjs/javascript](https://github.com/evozonjs/javascript)
-  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Expensify** [Expensify/Style-Guide](https://github.com/Expensify/Style-Guide/blob/master/javascript.md)
-  - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
-  - **Gawker Media**: [gawkermedia](https://github.com/gawkermedia/)
-  - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
-  - **Generation Tux**: [GenerationTux/javascript](https://github.com/generationtux/styleguide)
-  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
-  - **GreenChef**: [greenchef/javascript](https://github.com/greenchef/javascript)
-  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
-  - **Grupo-Abraxas**: [Grupo-Abraxas/javascript](https://github.com/Grupo-Abraxas/javascript)
-  - **Honey**: [honeyscience/javascript](https://github.com/honeyscience/javascript)
-  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript-style-guide)
-  - **Huballin**: [huballin](https://github.com/huballin/)
-  - **HubSpot**: [HubSpot/javascript](https://github.com/HubSpot/javascript)
-  - **Hyper**: [hyperoslo/javascript-playbook](https://github.com/hyperoslo/javascript-playbook/blob/master/style.md)
-  - **InterCity Group**: [intercitygroup/javascript-style-guide](https://github.com/intercitygroup/javascript-style-guide)
-  - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JeopardyBot**: [kesne/jeopardy-bot](https://github.com/kesne/jeopardy-bot/blob/master/STYLEGUIDE.md)
-  - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
-  - **Kaplan Komputing**: [kaplankomputing/javascript](https://github.com/kaplankomputing/javascript)
-  - **KickorStick**: [kickorstick](https://github.com/kickorstick/)
-  - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/Javascript-style-guide)
-  - **LEINWAND**: [LEINWAND/javascript](https://github.com/LEINWAND/javascript)
-  - **Lonely Planet**: [lonelyplanet/javascript](https://github.com/lonelyplanet/javascript)
-  - **M2GEN**: [M2GEN/javascript](https://github.com/M2GEN/javascript)
-  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
-  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
-  - **MitocGroup**: [MitocGroup/javascript](https://github.com/MitocGroup/javascript)
-  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
-  - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
-  - **Muber**: [muber](https://github.com/muber/)
-  - **National Geographic**: [natgeo](https://github.com/natgeo/)
-  - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
-  - **NullDev**: [NullDevCo/JavaScript-Styleguide](https://github.com/NullDevCo/JavaScript-Styleguide)
-  - **Nulogy**: [nulogy/javascript](https://github.com/nulogy/javascript)
-  - **Orange Hill Development**: [orangehill/javascript](https://github.com/orangehill/javascript)
-  - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
-  - **OutBoxSoft**: [OutBoxSoft/javascript](https://github.com/OutBoxSoft/javascript)
-  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
-  - **Pier 1**: [Pier1/javascript](https://github.com/pier1/javascript)
-  - **Qotto**: [Qotto/javascript-style-guide](https://github.com/Qotto/javascript-style-guide)
-  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
-  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
-  - **React**: [facebook.github.io/react/contributing/how-to-contribute.html#style-guide](https://facebook.github.io/react/contributing/how-to-contribute.html#style-guide)
-  - **REI**: [reidev/js-style-guide](https://github.com/rei/code-style-guides/)
-  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
-  - **Sainsbury’s Supermarkets**: [jsainsburyplc](https://github.com/jsainsburyplc)
-  - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
-  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
-  - **Sourcetoad**: [sourcetoad/javascript](https://github.com/sourcetoad/javascript)
-  - **Springload**: [springload](https://github.com/springload/)
-  - **StratoDem Analytics**: [stratodem/javascript](https://github.com/stratodem/javascript)
-  - **SteelKiwi Development**: [steelkiwi/javascript](https://github.com/steelkiwi/javascript)
-  - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/guide-javascript)
-  - **SwoopApp**: [swoopapp/javascript](https://github.com/swoopapp/javascript)
-  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
-  - **Syzygy Warsaw**: [syzygypl/javascript](https://github.com/syzygypl/javascript)
-  - **Target**: [target/javascript](https://github.com/target/javascript)
-  - **Terra**: [terra](https://github.com/cerner?utf8=%E2%9C%93&q=terra&type=&language=)
-  - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
-  - **The Nerdery**: [thenerdery/javascript-standards](https://github.com/thenerdery/javascript-standards)
-  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **UrbanSim**: [urbansim](https://github.com/urbansim/)
-  - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
-  - **WeBox Studio**: [weboxstudio/javascript](https://github.com/weboxstudio/javascript)
-  - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
-  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
-  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
-
-**[⬆ back to top](#table-of-contents)**
-
-## Translation
-
-  This style guide is also available in other languages:
-
-  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [lin-123/javascript](https://github.com/lin-123/javascript)
-  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [ParkSB/javascript-style-guide](https://github.com/ParkSB/javascript-style-guide)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb)
-  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [eraycetinay/javascript](https://github.com/eraycetinay/javascript)
-  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [dangkyokhoang/javascript-style-guide](https://github.com/dangkyokhoang/javascript-style-guide)
-
-## The JavaScript Style Guide Guide
-
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
-
-## Chat With Us About JavaScript
-
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
-
-## Contributors
-
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
-
-## License
-
-(The MIT License)
-
-Copyright (c) 2012 Airbnb
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-**[⬆ back to top](#table-of-contents)**
-
-## Amendments
-
-We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
-
-# };
