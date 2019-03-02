@@ -8,20 +8,20 @@ This repository serves as a reference for our coding standards, and an introduct
 - [CSS](css.md)
 - [HTML](html.md)
 - [Jade](jade.md)
-* [Stylus](stylus.md)
+- [Stylus](stylus.md)
 
 ## Common section
 
 This answers generic questions regardless of language or technology.
 
 ## Table of Contents
-  * [Tabs or Spaces?](#tabs-or-spaces)
-  * [Maximum Line Length](#maximum-line-length)
-  * [Blank Lines](#blank-lines)
-  * [Trailing Whitespace](#trailing-whitespace)
-  * [Encoding](#encoding)
-  * [Naming Conventions](#naming-conventions)
-  * [Annotations](#annotations)
+- [Tabs or Spaces?](#tabs-or-spaces)
+- [Maximum Line Length](#maximum-line-length)
+- [Blank Lines](#blank-lines)
+- [Trailing Whitespace](#trailing-whitespace)
+- [Encoding](#encoding)
+- [Naming Conventions](#naming-conventions)
+- [Annotations](#annotations)
 
 ## Tabs or Spaces?
 

@@ -187,7 +187,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     const atom = {
       value: 1,
 
-      addValue: function (value) {
+      addValue: function(value) {
         return atom.value + value;
       },
     };
@@ -651,7 +651,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     };
 
     // good
-    const foo = function () {
+    const foo = function() {
       // ...
     };
 
@@ -668,7 +668,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // immediately-invoked function expression (IIFE)
-    (function () {
+    (function() {
       console.log('Welcome to the Internet. Please follow me.');
     }());
     ```
@@ -701,12 +701,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function (name, options, arguments) {
+    function(name, options, arguments) {
       // ...
     }
 
     // good
-    function (name, options, args) {
+    function(name, options, args) {
       // ...
     }
     ```
@@ -718,13 +718,13 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function () {
+    function() {
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
     }
 
     // good
-    function (...args) {
+    function(...args) {
       return args.join('');
     }
 
@@ -737,7 +737,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // really bad
-    function (opts) {
+    function(opts) {
       // No! We shouldn’t mutate function arguments.
       // Double bad: if opts is falsy it'll be set to an object which may
       // be what you want but it can introduce subtle bugs.
@@ -746,7 +746,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // still bad
-    function (opts) {
+    function(opts) {
       if (opts === void 0) {
         opts = {};
       }
@@ -754,7 +754,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }
 
     // good
-    function (opts = {}) {
+    function(opts = {}) {
       // ...
     }
     ```
@@ -767,7 +767,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```javascript
     var b = 1;
     // bad
-    function (a = b++) {
+    function(a = b++) {
       console.log(a);
     }
     count();  // 1
@@ -781,12 +781,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function (opts = {}, name) {
+    function(opts = {}, name) {
       // ...
     }
 
     // good
-    function (name, opts = {}) {
+    function(name, opts = {}) {
       // ...
     }
     ```
@@ -807,17 +807,19 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
   <a name="functions--signature-spacing"></a><a name="7.11"></a>
   - [7.11](#functions--signature-spacing) Spacing in a function signature. eslint: [`space-before-function-paren`](https://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
 
-    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+    > Why? It is similar to defining functions within an object syntax. Consistency is good.
 
     ```javascript
     // bad
-    const f = function(){};
+    const f = function a(){};
     const g = function (){};
-    const h = function() {};
+    const g = function () {};
 
     // good
-    const x = function () {};
     const y = function a() {};
+
+    // best
+    const x = function() {};
     ```
 
   <a name="functions--mutate-params"></a><a name="7.12"></a>
@@ -827,7 +829,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function (obj) {
+    function(obj) {
       obj.key = 1;
     }
     ```
@@ -839,23 +841,23 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function (a) {
+    function(a) {
       a = 1;
       // ...
     }
 
-    function (a) {
+    function(a) {
       if (!a) { a = 1; }
       // ...
     }
 
     // good
-    function (a) {
+    function(a) {
       const b = a || 1;
       // ...
     }
 
-    function (a = 1) {
+    function(a = 1) {
       // ...
     }
     ```
@@ -886,14 +888,14 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    function foo(bar,
-                 baz,
-                 quux) {
+    function(bar,
+              baz,
+              quux) {
       // ...
     }
 
     // good
-    function foo(
+    function(
       bar,
       baz,
       quux,
@@ -919,15 +921,15 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 ## Arrow Functions
 
   <a name="arrows--use-them"></a><a name="8.1"></a>
-  - [8.1](#arrows--use-them) When you must use an anonymous function (as when passing an inline callback), use arrow function notation. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
+  - [8.1](#arrows--use-them) Use arrow function notation whenever possible. eslint: [`prefer-arrow-callback`](https://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](https://eslint.org/docs/rules/arrow-spacing.html)
 
     > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
 
-    > Why not? If you have a fairly complicated function, you might move that logic out into its own named function expression.
+    > Why not? If you have a fairly complicated function, you might move that logic out into its own function.
 
     ```javascript
     // bad
-    [1, 2, 3].map(function (x) {
+    [1, 2, 3].map(function(x) {
       const y = x + 1;
       return x * y;
     });
@@ -946,13 +948,13 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    [1, 2, 3].map(number => {
+    [1, 2, 3].map((number) => {
       const nextNumber = number + 1;
       `A string containing the ${nextNumber}.`;
     });
 
     // good
-    [1, 2, 3].map(number => `A string containing the ${number + 1}.`);
+    [1, 2, 3].map((number) => `A string containing the ${number + 1}.`);
 
     // good
     [1, 2, 3].map((number) => {
@@ -966,7 +968,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     }));
 
     // No implicit return with side effects
-    function foo(callback) {
+    const foo = function(callback) {
       const val = callback();
       if (val === true) {
         // Do something if callback returns true
@@ -991,14 +993,14 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
+    ['get', 'post', 'put'].map((httpMethod) => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
       )
     );
 
     // good
-    ['get', 'post', 'put'].map(httpMethod => (
+    ['get', 'post', 'put'].map((httpMethod) => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
         httpMethod,
@@ -1007,19 +1009,19 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
-  - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments for clarity and consistency. Note: it is also acceptable to always use parentheses, in which case use the [“always” option](https://eslint.org/docs/rules/arrow-parens#always) for eslint. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
+  - [8.4](#arrows--one-arg-parens) Always include parentheses around arguments for clarity and consistency. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
 
-    > Why? Less visual clutter.
+    > Why? Consistency.
 
     ```javascript
     // bad
-    [1, 2, 3].map((x) => x * x);
-
-    // good
     [1, 2, 3].map(x => x * x);
 
     // good
-    [1, 2, 3].map(number => (
+    [1, 2, 3].map((x) => x * x);
+
+    // good
+    [1, 2, 3].map((number) => (
       `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
     ));
 
@@ -1047,7 +1049,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
 
     // good
-    const itemHeight = item => (item.height <= 256 ? item.largeSize : item.smallSize);
+    const itemHeight = (item) => (item.height <= 256 ? item.largeSize : item.smallSize);
 
     // good
     const itemHeight = (item) => {
@@ -1068,10 +1070,10 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
       (bar);
 
     // good
-    foo => bar;
-    foo => (bar);
-    foo => (
-       bar
+    (foo) => bar;
+    (foo) => (bar);
+    (foo) => (
+      bar
     )
     ```
 
@@ -1089,7 +1091,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     function Queue(contents = []) {
       this.queue = [...contents];
     }
-    Queue.prototype.pop = function () {
+    Queue.prototype.pop = function() {
       const value = this.queue[0];
       this.queue.splice(0, 1);
       return value;
@@ -1120,7 +1122,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
       Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function () {
+    PeekableQueue.prototype.peek = function() {
       return this.queue[0];
     };
 
@@ -1137,12 +1139,12 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    Jedi.prototype.jump = function () {
+    Jedi.prototype.jump = function() {
       this.jumping = true;
       return true;
     };
 
-    Jedi.prototype.setHeight = function (height) {
+    Jedi.prototype.setHeight = function(height) {
       this.height = height;
     };
 
@@ -1439,7 +1441,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     });
 
     // best (keeping it functional)
-    const increasedByOne = numbers.map(num => num + 1);
+    const increasedByOne = numbers.map((num) => num + 1);
     ```
 
   <a name="generators--nope"></a><a name="11.2"></a>
@@ -1835,7 +1837,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
       anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function () {
+      var anonymous = function() {
         console.log('anonymous function expression');
       };
     }
@@ -2965,7 +2967,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     // bad - raises exception
     const luke = {}
     const leia = {}
-    [luke, leia].forEach(jedi => jedi.father = 'vader')
+    [luke, leia].forEach((jedi) => jedi.father = 'vader')
 
     // bad - raises exception
     const reaction = "No! That’s impossible!"
@@ -3176,7 +3178,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     // bad
     function foo() {
       const self = this;
-      return function () {
+      return function() {
         console.log(self);
       };
     }
@@ -3184,7 +3186,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     // bad
     function foo() {
       const that = this;
-      return function () {
+      return function() {
         console.log(that);
       };
     }
