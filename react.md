@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
@@ -10,7 +10,6 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
   1. [Mixins](#mixins)
   1. [Naming](#naming)
-  1. [Declaration](#declaration)
   1. [Alignment](#alignment)
   1. [Quotes](#quotes)
   1. [Spacing](#spacing)
@@ -28,7 +27,6 @@ This style guide is mostly based on the standards that are currently prevalent i
     - However, multiple [Stateless, or Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are allowed per file. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you’re initializing the app from a file that is not JSX.
-  - [`react/forbid-prop-types`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md) will allow `arrays` and `objects` only if it is explicitly noted what `array` and `object` contains, using `arrayOf`, `objectOf`, or `shape`.
 
 ## Class vs `React.createClass` vs stateless
 
@@ -52,7 +50,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     }
     ```
 
-    And if you don’t have state or refs, prefer normal functions (not arrow functions) over classes:
+    And if you don’t have state or refs, prefer functions over classes:
 
     ```jsx
     // bad
@@ -62,15 +60,10 @@ This style guide is mostly based on the standards that are currently prevalent i
       }
     }
 
-    // bad (relying on function name inference is discouraged)
+    // good
     const Listing = ({ hello }) => (
       <div>{hello}</div>
     );
-
-    // good
-    function Listing({ hello }) {
-      return <div>{hello}</div>;
-    }
     ```
 
 ## Mixins
@@ -81,36 +74,6 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
-  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
-
-    ```jsx
-    // bad
-    import reservationCard from './ReservationCard';
-
-    // good
-    import ReservationCard from './ReservationCard';
-
-    // bad
-    const ReservationItem = <ReservationCard />;
-
-    // good
-    const reservationItem = <ReservationCard />;
-    ```
-
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
-
-    ```jsx
-    // bad
-    import Footer from './Footer/Footer';
-
-    // bad
-    import Footer from './Footer/index';
-
-    // good
-    import Footer from './Footer';
-    ```
   - **Higher-order Component Naming**: Use a composite of the higher-order component’s name and the passed-in component’s name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
 
     > Why? A component’s `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
@@ -135,37 +98,6 @@ This style guide is mostly based on the standards that are currently prevalent i
 
       WithFoo.displayName = `withFoo(${wrappedComponentName})`;
       return WithFoo;
-    }
-    ```
-
-  - **Props Naming**: Avoid using DOM component prop names for different purposes.
-
-    > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
-
-    ```jsx
-    // bad
-    <MyComponent style="fancy" />
-
-    // bad
-    <MyComponent className="fancy" />
-
-    // good
-    <MyComponent variant="fancy" />
-    ```
-
-## Declaration
-
-  - Do not use `displayName` for naming components. Instead, name the component by reference.
-
-    ```jsx
-    // bad
-    export default React.createClass({
-      displayName: 'ReservationCard',
-      // stuff goes here
-    });
-
-    // good
-    export default class ReservationCard extends React.Component {
     }
     ```
 
@@ -681,29 +613,6 @@ We don’t recommend using indexes for keys if the order of items may change.
     export default Link;
     ```
 
-  - Ordering for `React.createClass`: eslint: [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md)
-
-  1. `displayName`
-  1. `propTypes`
-  1. `contextTypes`
-  1. `childContextTypes`
-  1. `mixins`
-  1. `statics`
-  1. `defaultProps`
-  1. `getDefaultProps`
-  1. `getInitialState`
-  1. `getChildContext`
-  1. `componentWillMount`
-  1. `componentDidMount`
-  1. `componentWillReceiveProps`
-  1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
-  1. `componentDidUpdate`
-  1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
-  1. `render`
 
 ## `isMounted`
 
@@ -712,22 +621,3 @@ We don’t recommend using indexes for keys if the order of items may change.
   > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
-
-## Translation
-
-  This JSX/React style guide is also available in other languages:
-
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
-  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript/tree/master/react)
-  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
-  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
-  - ![Br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portuguese**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb/tree/master/react)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide/tree/master/react)
-  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [alioguzhan/react-style-guide](https://github.com/alioguzhan/react-style-guide)
-  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnam**: [uetcodecamp/jsx-style-guide](https://github.com/UETCodeCamp/jsx-style-guide)
-
-**[⬆ back to top](#table-of-contents)**

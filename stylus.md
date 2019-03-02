@@ -3,30 +3,30 @@
 A Stylus guide. No other way of writing stylus is valid. Please read [SMACSS](https://smacss.com). If you don't know if you can use a certain styling thingy, use [http://caniuse.com](http://caniuse.com) to check. Language reference: [http://learnboost.github.io/stylus/](http://learnboost.github.io/stylus/).
 
 ## Table of Contents
-  * [Naming conventions](#naming-conventions)
-  * [Units](#units)
-  * [Specificity](#specificity)
-  * [Formatting](#formatting)
-  * [Vendor Prefixes](#vendor-prefixes)
-  * [Variable Names](#variable-names)
-  * [Property lookup](#property-lookup)
-  * [Strings](#strings)
-  * [Numbers](#numbers)
-  * [Units](#units)
-  * [Calculations](#calculations)
-  * [Colors](#colors)
-  * [Imports](#imports)
-  * [Extend](#extend)
-  * [Functions](#functions)
+- [Naming conventions](#naming-conventions)
+- [Units](#units)
+- [Specificity](#specificity)
+- [Formatting](#formatting)
+- [Vendor Prefixes](#vendor-prefixes)
+- [Variable Names](#variable-names)
+- [Property lookup](#property-lookup)
+- [Strings](#strings)
+- [Numbers](#numbers)
+- [Units](#units)
+- [Calculations](#calculations)
+- [Colors](#colors)
+- [Imports](#imports)
+- [Extend](#extend)
+- [Functions](#functions)
 
 ## Naming conventions
 
 We are using a subset of [SMACSS](https://smacss.com) and use prefixes to separate elements on the page. Legend:
 
- * `.l-` layout
- * `.p-` page
- * `.m-` module
- * no prefix - state (example: `active`)
+- `.l-` layout
+- `.p-` page
+- `.m-` module
+- no prefix - state (example: `active`)
 
 ```stylus
 
@@ -94,16 +94,16 @@ We never use Ids for styling. Leave dealing with Ids to JavaScript. Style with c
  - semicolons: hell no
 
 ```stylus
-// BAD
+// bad
 p {
   color: hotpink;
 }
 
-// BAD
+// bad
 p
   color red
 
-// GOOD
+// good
 p
   color: red
 ```
@@ -114,12 +114,12 @@ p
 Use nib instead of writing your own
 
 ```stylus
-// BAD
+// bad
 -webkit-border-radius: 4px
 -moz-border-radius: 4px
 border-radius: 4px
 
-// GOOD
+// good
 @import 'nib'
 border-radius: 4px
 ```
@@ -130,10 +130,10 @@ border-radius: 4px
 Start variable names with a `$`. Stylus is not a programming language. Let's not use any forms of camelCase. Avoid using dashes in variable names too: it looks like a minus sign later in the code.
 
 ```stylus
-main_color = white // BAD
-mainColour = white // BAD
-main-color = white // BAD
-$main_color = white // GOOD
+main_color = white // bad
+mainColour = white // bad
+main-color = white // bad
+$main_color = white // good
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -161,20 +161,20 @@ Use property lookup to avoid creating unnecessary variables.
 URLs and font names should be quoted:
 
 ```stylus
-// GOOD
+// good
 $font_stack: 'Helvetica Neue Light', 'Helvetica', 'Arial', sans-serif
 
-// BAD
+// bad
 $font_stack: "Helvetica Neue Light", "Helvetica", "Arial", sans-serif
 
-// BAD
+// bad
 $font_stack: Helvetica Neue Light, Helvetica, Arial, sans-serif
 
-// GOOD
+// good
 .foo
   background-image: url('/images/kittens.jpg')
 
-// BAD
+// bad
 .foo
   background-image: url(/images/kittens.jpg)
 ```
@@ -186,13 +186,13 @@ $font_stack: Helvetica Neue Light, Helvetica, Arial, sans-serif
 Drop trailing and leading zeros before a decimal value when you can:
 
 ```stylus
-// GOOD
+// good
 .foo
   padding: 2em
   opacity: .5
 
 
-// BAD
+// bad
 .foo
   padding: 2.0em
   opacity: 0.5
@@ -206,10 +206,10 @@ Drop trailing and leading zeros before a decimal value when you can:
 When dealing with lengths, a 0 value should never ever have a unit.
 
 ```stylus
-// GOOD
+// good
 $length: 0
 
-// BAD
+// bad
 $length: 0em
 ```
 
@@ -220,12 +220,12 @@ $length: 0em
 Top-level numeric calculations should always be wrapped in parentheses.
 
 ```stylus
-// GOOD
+// good
 .foo
   width: (100% / 3)
 
 
-// BAD
+// bad
 .foo
   width: 100% / 3
 
@@ -244,24 +244,24 @@ In order to make colors as simple as they can be, my advice would be to respect 
 When using HSL or RGB notation, always add a single space after a comma (,) and no space between parentheses ((, )) and content.
 
 ```stylus
-// GOOD
+// good
 .foo
   color: #f00
 
-// BAD
+// bad
 .foo
   color: #ff0000
 
-// BAD
+// bad
 .foo
   color: red
 
-// GOOD
+// good
 .foo
   color: rgba(0, 0, 0, 0.1)
   background: hsl(300, 100%, 100%)
 
-// BAD
+// bad
 .foo
   color: rgba(0,0,0,0.1)
   background: hsl( 300, 100%, 100% )

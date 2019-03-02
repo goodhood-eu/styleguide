@@ -1,4 +1,4 @@
-# Airbnb JavaScript Style Guide() {
+# JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*. Read the fine manual here: [http://bonsaiden.github.io/JavaScript-Garden/](http://bonsaiden.github.io/JavaScript-Garden/). Bonus read: [http://eloquentjavascript.net](http://eloquentjavascript.net).
 

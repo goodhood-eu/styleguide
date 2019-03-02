@@ -7,20 +7,20 @@ You can find language reference here: [http://jade-lang.com](http://jade-lang.co
 Please also read [HTML Style Guide](https://github.com/swiftgift/guidelines/blob/master/HTML.md) and [JavaScript Style Guide](https://github.com/swiftgift/guidelines/blob/master/JAVASCRIPT.md)
 
 ## Table of Contents
-  * [General Rules](general-rules)
-  * [Inline JavaScript](inline-javascript)
-  * [Variables](variables)
-  * [Interpolation](interpolation)
-  * [JSON](json)
-  * [Helpers](helpers)
+- [General Rules](general-rules)
+- [Inline JavaScript](inline-javascript)
+- [Variables](variables)
+- [Interpolation](interpolation)
+- [JSON](json)
+- [Helpers](helpers)
 
 ## General Rules
 
-  * Absolutely no traling spaces. Traling spaces break jade. If you need to put a space at the end of the line, use `&#32;`. You're welcome.
-  * Ids must be placed first
-  * Classes must use the dot syntax
-  * Classes describing the element should be placed first
-  * Responsive classes should be placed at the end
+- Absolutely no traling spaces. Traling spaces break jade. If you need to put a space at the end of the line, use `&#32;`. You're welcome.
+- Ids must be placed first
+- Classes must use the dot syntax
+- Classes describing the element should be placed first
+- Responsive classes should be placed at the end
 
 ```jade
 h1#id.l-h-title.col-md-6 //- GOOD
