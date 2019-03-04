@@ -4,7 +4,7 @@
 
 Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/blob/master/README.md)
 
-> **Note**: this guide assumes you are using [Babel](https://babeljs.io), and requires that you use [babel-preset-airbnb](https://npmjs.com/babel-preset-airbnb) or the equivalent. It also assumes you are installing shims/polyfills in your app, with [airbnb-browser-shims](https://npmjs.com/airbnb-browser-shims) or the equivalent.
+> **Note**: this guide assumes you are using [Babel](https://babeljs.io). It also assumes you are installing shims/polyfills in your app.
 
 ## Table of Contents
 
@@ -1232,15 +1232,15 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // ok
-    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
-    module.exports = AirbnbStyleGuide.es6;
+    const StyleGuide = require('./StyleGuide');
+    module.exports = StyleGuide.es6;
 
     // better
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
-    export default AirbnbStyleGuide.es6;
+    import StyleGuide from './StyleGuide';
+    export default StyleGuide.es6;
 
     // best
-    import { es6 } from './AirbnbStyleGuide';
+    import { es6 } from './StyleGuide';
     export default es6;
     ```
 
@@ -1251,10 +1251,10 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
 
     ```javascript
     // bad
-    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+    import * as StyleGuide from './StyleGuide';
 
     // good
-    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    import StyleGuide from './StyleGuide';
     ```
 
   <a name="modules--no-duplicate-imports"></a>
@@ -2470,7 +2470,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
 
     // bad
-    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+    $.ajax({ method: 'POST', url: 'https://google.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
 
     // good
     const foo = jsonData
@@ -2483,7 +2483,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     // good
     $.ajax({
       method: 'POST',
-      url: 'https://airbnb.com/',
+      url: 'https://google.com/',
       data: { name: 'John' },
     })
       .done(() => console.log('Congratulations!'))

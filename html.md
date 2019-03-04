@@ -9,33 +9,32 @@ Write your HTML with taste! If you have any doubts, clear them up on this websit
 - [Forms](forms)
 - [Tables](tables)
 
-
 ## General formatting
 
 - Use double quotes for attributes. This is the HTML way.
 - Use semantically appropriate tags
   - Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br>` tags.
-  - Items in list form should always be in `<ul>`, `<ol>`, or `<dl>`. Never use a set of `<div>` or `<p>`.
+  - Items in a list should always be in `<ul>`, `<ol>`, or `<dl>`. Never use a set of `<div>` or `<p>`.
 - Every form input that has text attached should utilize a `<label>` tag. Especially radio or checkbox elements.
 - Even though quotes around attributes is optional, always put quotes around attributes for readability.
 - Avoid writing closing tag comments, like `<!-- /.element -->`. This just adds to page load time. Plus, most editors have indentation guides and open-close tag highlighting.
-- Avoid trailing slashes in self-closing elements. For example, `<br>`, `<hr>`, `<img>`, and `<input>`.
+- Always add trailing slashes in self-closing tags. For example, `<br />`, `<hr />`, `<img />`, and `<input />`.
 - Don't set `tabindex` manually unless specifically requested — rely on the browser to set the order.
 
 ```html
-<p class="line-note" data-attribute="106">This is my paragraph of special text.</p>
+<p class="c-component-description">This is my paragraph of special text.</p>
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Boolean attributes
 
-Many attributes don't require a value to be set, like disabled or checked, so don't set them.
+Many attributes don't require a value to be set, like disabled or checked, so don't set it.
 
 ```html
-<input type="text" disabled>
+<input type="text" disabled />
 
-<input type="checkbox" value="1" checked>
+<input type="checkbox" value="1" checked />
 
 <select>
   <option value="1" selected>1</option>
@@ -46,17 +45,17 @@ Many attributes don't require a value to be set, like disabled or checked, so do
 
 ## Lean markup
 
-Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. For example:
+Whenever possible, avoid superfluous parent elements when writing HTML. For example:
 
 ```html
 
 <!-- Not so great -->
-<span class="avatar">
+<span class="ui-avatar">
   <img src="...">
 </span>
 
 <!-- Better -->
-<img class="avatar" src="...">
+<img class="ui-avatar" src="...">
 
 ```
 
@@ -64,9 +63,8 @@ Whenever possible, avoid superfluous parent elements when writing HTML. Many tim
 
 ## Forms
 
-  * Lean towards radio or checkbox lists instead of select menus.
-  * Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here — the wrapping automatically associates the two.
-  * The primary form button must come first in the DOM, especially for forms with multiple submit buttons. The visual order should be preserved with float: right; on each button (this affects tabindex).
+- Wrap radio and checkbox inputs and their text in `<label>`s. No need for `for` attributes here — the wrapping automatically associates the two.
+- The primary form button must come first in the DOM, especially for forms with multiple submit buttons. The visual order should be preserved with float: right; on each button (this affects tabindex).
 
 **[⬆ back to top](#table-of-contents)**
 

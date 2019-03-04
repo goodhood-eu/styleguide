@@ -7,9 +7,9 @@ This repository serves as a reference for our coding standards, and an introduct
 - [JavaScript](javascript.md)
 - [React](react.md)
 - [CSS](css.md)
-- [Stylus](stylus.md) [WIP]
-- [HTML](html.md) [WIP]
-- [Jade](jade.md) [WIP]
+- [Stylus](stylus.md)
+- [HTML](html.md)
+- [Pug](pug.md)
 
 ## Common section
 

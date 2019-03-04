@@ -1,6 +1,6 @@
 # Stylus Style Guide
 
-A Stylus guide. No other way of writing stylus is valid. Please read [SMACSS](https://smacss.com). If you don't know if you can use a certain styling thingy, use [http://caniuse.com](http://caniuse.com) to check. Language reference: [http://learnboost.github.io/stylus/](http://learnboost.github.io/stylus/).
+A stylish stylus style guide. No other way of writing stylus is valid. Please read [SMACSS](https://smacss.com). When you don't know if you can use a certain way of styling, see [https://caniuse.com](https://caniuse.com) to check. Language reference: [http://stylus-lang.com](http://stylus-lang.com).
 
 ## Table of Contents
 - [Naming conventions](#naming-conventions)
@@ -23,55 +23,57 @@ A Stylus guide. No other way of writing stylus is valid. Please read [SMACSS](ht
 
 We are using a subset of [SMACSS](https://smacss.com) and use prefixes to separate elements on the page. Legend:
 
-- `.l-` layout
 - `.p-` page
-- `.m-` module
-- no prefix - state (example: `active`)
+- `.c-` component
+- `.ui-` UI-Kit element
+- `.is-` or `.has-` state (example: `is-active`)
+
+Page styles may override component styles when needed.
 
 ```stylus
-
-.l-header
-  background: #000
-
-.p-index
+.p-home
   color: #333
 
-.m-button
-  font-size: 20px
+  .c-header
+    background: #000
 
-  &.active
-    color: #f00
+  .c-button
+    font-size: 20px
+
+    &.active
+      color: #f00
 
 ```
 
-Nested classes inherit first letter of it's ancestor name, This allows greater flexibility and name reuse. Example:
+Use underscores to join multi-word names: `p-this_is_a_long_page_name` and dashes to reflect nesting. Nested element classes inherit their ancestor names. This allows greater flexibility and name reuse. Example:
 
-```jade
+```html
 //- This is the markup
-header.l-header
-  h1.l-h-logo
-  nav.l-h-nav
-    a.l-h-n-item(href="/about") About
-
+<header class="c-header">
+  <h1 class="c-header-title">Title</h1>
+  <nav class="c-header-navigation">
+    <a href="/about" class="c-header-navigation-link">About</a>
+  </nav>
+</header>
 ```
 
 ```stylus
-.l-header
+.c-header
   overflow: hidden
 
-  .l-h-logo
-    font-size: 20px
+.c-header-title
+  font-size: 20px
 
-  .l-h-nav
-    float: right
+.c-header-navigation
+  float: right
 
-  .l-h-n-item
-    font-style: italic
+.c-header-navigation-link
+  font-style: italic
 ```
 
-As a rule of thumb, avoid unnecessary nesting in Stylus. At most, aim for three levels. If you cannot help it, step back and rethink your overall strategy (either the specificity needed, or the layout of the nesting).
+As a rule of thumb, avoid unnecessary nesting in Stylus. At most, aim for three levels. If you can't help it, step back and rethink your overall strategy.
 
-Always put a class on everything. It is only OK to use a tagName if you're deeply nested, and styling a leef node.
+Always put a class on everything. It is only OK to use a tagName selector if you're styling a leaf node.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -83,7 +85,7 @@ Use `px` for `font-size`, because it offers absolute control over text. Addition
 
 ## Specificity
 
-We never use Ids for styling. Leave dealing with Ids to JavaScript. Style with classes.
+We never use IDs for styling. Style with classes.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -111,7 +113,7 @@ p
 **[⬆ back to top](#table-of-contents)**
 
 ## Vendor Prefixes
-Use nib instead of writing your own
+Use autoprefixer instead of writing your own
 
 ```stylus
 // bad
@@ -120,20 +122,22 @@ Use nib instead of writing your own
 border-radius: 4px
 
 // good
-@import 'nib'
 border-radius: 4px
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Variable Names
-Start variable names with a `$`. Stylus is not a programming language. Let's not use any forms of camelCase. Avoid using dashes in variable names too: it looks like a minus sign later in the code.
+Start variable names with a `$`. Use camelCase to name your variables. Avoid using dashes and underscores in variable names as it looks like a minus sign in the code.
 
 ```stylus
-main_color = white // bad
-mainColour = white // bad
-main-color = white // bad
-$main_color = white // good
+// bad
+main_color = white
+mainColour = white
+main-color = white
+
+// good
+$mainColor = white
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -143,32 +147,31 @@ $main_color = white // good
 Use property lookup to avoid creating unnecessary variables.
 
 ```stylus
- #logo
-   position: absolute
-   top: 50%
-   left: 50%
-   width: 150px
-   height: 80px
-   margin-left: -(@width / 2)
-   margin-top: -(@height / 2)
-
+.ui-logo
+  width: 150px
+  height: 80px
+  margin-left: -(@width / 2)
+  margin-top: -(@height / 2)
+  position: absolute
+  top: 50%
+  left: 50%
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Strings
 
-URLs and font names should be quoted:
+URLs and font names should be quoted. Use single quotes (`''`) and not double quotes (`"`).
 
 ```stylus
+// bad
+$fonts = "Helvetica Neue Light", "Helvetica", "Arial", sans-serif
+
+// bad
+$fonts = Helvetica Neue Light, Helvetica, Arial, sans-serif
+
 // good
-$font_stack: 'Helvetica Neue Light', 'Helvetica', 'Arial', sans-serif
-
-// bad
-$font_stack: "Helvetica Neue Light", "Helvetica", "Arial", sans-serif
-
-// bad
-$font_stack: Helvetica Neue Light, Helvetica, Arial, sans-serif
+$fonts = 'Helvetica Neue Light', 'Helvetica', 'Arial', sans-serif
 
 // good
 .foo
@@ -186,31 +189,29 @@ $font_stack: Helvetica Neue Light, Helvetica, Arial, sans-serif
 Drop trailing and leading zeros before a decimal value when you can:
 
 ```stylus
-// good
-.foo
-  padding: 2em
-  opacity: .5
-
-
 // bad
 .foo
   padding: 2.0em
   opacity: 0.5
 
+// good
+.foo
+  padding: 2em
+  opacity: .5
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Units
 
-When dealing with lengths, a 0 value should never ever have a unit.
+When dealing with 0 omit units.
 
 ```stylus
-// good
-$length: 0
-
 // bad
-$length: 0em
+$length = 0em
+
+// good
+$length = 0
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -220,33 +221,30 @@ $length: 0em
 Top-level numeric calculations should always be wrapped in parentheses.
 
 ```stylus
-// good
-.foo
-  width: (100% / 3)
-
-
 // bad
 .foo
   width: 100% / 3
 
+// good
+.foo
+  width: (100% / 3)
 ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Colors
 
-In order to make colors as simple as they can be, my advice would be to respect the following order of preference for color formats:
+In order to make colors as simple as they can be, respect the following order of preference for color formats:
 
 1. Hexadecimal notation. Preferably lowercase and shortened when possible
 2. RGB notation
-3. HSL notation
 
 When using HSL or RGB notation, always add a single space after a comma (,) and no space between parentheses ((, )) and content.
 
 ```stylus
-// good
+// bad
 .foo
-  color: #f00
+  color: red
 
 // bad
 .foo
@@ -254,24 +252,16 @@ When using HSL or RGB notation, always add a single space after a comma (,) and 
 
 // bad
 .foo
-  color: red
+  color: rgba( 0,0,0,0.1 )
 
 // good
 .foo
-  color: rgba(0, 0, 0, 0.1)
-  background: hsl(300, 100%, 100%)
+  color: #f00
 
-// bad
+// good
 .foo
-  color: rgba(0,0,0,0.1)
-  background: hsl( 300, 100%, 100% )
+  color: rgba(0, 0, 0, .1)
 ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Imports
-
-We place all imports in the main file. No nested imports please. Only exception: dedicated vendor imports file.
 
 **[⬆ back to top](#table-of-contents)**
 
