@@ -5,7 +5,7 @@
 This repository serves as a reference for our coding standards, and an introduction to our products. You can read the common section, or jump to language specific pages. If you have any question that is not covered here, it's always a good idea to check on [MDN](https://developer.mozilla.org/en-US/) and [StackOverflow](http://stackoverflow.com)
 
 - [JavaScript](javascript.md)
-- [React](react.md) [WIP]
+- [React](react.md)
 - [CSS](css.md) [WIP]
 - [Stylus](stylus.md) [WIP]
 - [HTML](html.md) [WIP]

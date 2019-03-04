@@ -308,36 +308,6 @@ We don’t recommend using indexes for keys if the order of items may change.
   ))}
   ```
 
-  - Always define explicit defaultProps for all non-required props.
-
-  > Why? propTypes are a form of documentation, and providing defaultProps means the reader of your code doesn’t have to assume as much. In addition, it can mean that your code can omit certain type checks.
-
-  ```jsx
-  // bad
-  function SFC({ foo, bar, children }) {
-    return <div>{foo}{bar}{children}</div>;
-  }
-  SFC.propTypes = {
-    foo: PropTypes.number.isRequired,
-    bar: PropTypes.string,
-    children: PropTypes.node,
-  };
-
-  // good
-  function SFC({ foo, bar, children }) {
-    return <div>{foo}{bar}{children}</div>;
-  }
-  SFC.propTypes = {
-    foo: PropTypes.number.isRequired,
-    bar: PropTypes.string,
-    children: PropTypes.node,
-  };
-  SFC.defaultProps = {
-    bar: '',
-    children: null,
-  };
-  ```
-
   - Use spread props sparingly.
   > Why? Otherwise you’re more likely to pass unnecessary props down to components. And for React v15.6.1 and older, you could [pass invalid HTML attributes to the DOM](https://reactjs.org/blog/2017/09/08/dom-attributes-in-react-16.html).
 
@@ -462,48 +432,30 @@ We don’t recommend using indexes for keys if the order of items may change.
     ```
 
 ## Methods
-
-  - Use arrow functions to close over local variables. It is handy when you need to pass additional data to an event handler. Although, make sure they [do not massively hurt performance](https://www.bignerdranch.com/blog/choosing-the-best-approach-for-react-event-handlers/), in particular when passed to custom components that might be PureComponents, because they will trigger a possibly needless rerender every time.
-
-    ```jsx
-    function ItemList(props) {
-      return (
-        <ul>
-          {props.items.map((item, index) => (
-            <Item
-              key={item.key}
-              onClick={(event) => doSomethingWith(event, item.name, index)}
-            />
-          ))}
-        </ul>
-      );
-    }
-    ```
-
   - Bind event handlers for the render method in the constructor. eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-    > Why? A bind call in the render path creates a brand new function on every single render. Do not use arrow functions in class fields, because it makes them [challenging to test and debug, and can negatively impact performance](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1), and because conceptually, class fields are for data, not logic.
+    > Why? A bind call in the render path creates a brand new function on every single render. Do not use arrow functions in class fields, because it makes them [challenging to test and debug, and can negatively impact performance](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1).
 
     ```jsx
     // bad
     class extends React.Component {
-      onClickDiv() {
+      handleClickDiv() {
         // do stuff
       }
 
       render() {
-        return <div onClick={this.onClickDiv.bind(this)} />;
+        return <div onClick={this.handleClickDiv.bind(this)} />;
       }
     }
 
-    // very bad
+    // bad
     class extends React.Component {
-      onClickDiv = () => {
+      handleClickDiv = () => {
         // do stuff
       }
 
       render() {
-        return <div onClick={this.onClickDiv} />
+        return <div onClick={this.handleClickDiv} />
       }
     }
 
@@ -512,15 +464,15 @@ We don’t recommend using indexes for keys if the order of items may change.
       constructor(props) {
         super(props);
 
-        this.onClickDiv = this.onClickDiv.bind(this);
+        this.handleClickDiv = this.handleClickDiv.bind(this);
       }
 
-      onClickDiv() {
+      handleClickDiv() {
         // do stuff
       }
 
       render() {
-        return <div onClick={this.onClickDiv} />;
+        return <div onClick={this.handleClickDiv} />;
       }
     }
     ```
@@ -531,7 +483,7 @@ We don’t recommend using indexes for keys if the order of items may change.
     ```jsx
     // bad
     React.createClass({
-      _onClickSubmit() {
+      _handleClickSubmit() {
         // do stuff
       },
 
@@ -540,7 +492,30 @@ We don’t recommend using indexes for keys if the order of items may change.
 
     // good
     class extends React.Component {
+      handleClickSubmit() {
+        // do stuff
+      }
+
+      // other stuff
+    }
+    ```
+
+  - Prefix event handlers with `handle`
+    > Why? It helps differentiate between props and class methods.
+
+    ```jsx
+    // bad
+    class extends React.Component {
       onClickSubmit() {
+        // do stuff
+      }
+
+      // other stuff
+    }
+
+    // good
+    class extends React.Component {
+      handleClickSubmit() {
         // do stuff
       }
 
@@ -566,9 +541,7 @@ We don’t recommend using indexes for keys if the order of items may change.
 
   - Ordering for `class extends React.Component`:
 
-  1. optional `static` methods
   1. `constructor`
-  1. `getChildContext`
   1. `componentWillMount`
   1. `componentDidMount`
   1. `componentWillReceiveProps`
@@ -576,8 +549,10 @@ We don’t recommend using indexes for keys if the order of items may change.
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
+  1. `getChildContext`
+  1. `getDefaultState`
+  1. *getter and setter methods`* like `getSelectReason()` or `setValue()`
+  1. *clickHandlers or eventHandlers* like `handleClickSubmit()` or `handleChangeDescription()`
   1. *optional render methods* like `renderNavigation()` or `renderProfilePicture()`
   1. `render`
 
@@ -612,12 +587,3 @@ We don’t recommend using indexes for keys if the order of items may change.
 
     export default Link;
     ```
-
-
-## `isMounted`
-
-  - Do not use `isMounted`. eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
-
-  > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
-
-  [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
