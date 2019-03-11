@@ -1,6 +1,6 @@
 # Coding Style Guide
 
-![Falling with style](http://www.quickmeme.com/img/dc/dc368e07a86a1f14baa5bbe47fa4fbe5a2ad9a9edc6b2413a76705773a1baa20.jpg)
+![Welcome to the internet](https://i.kym-cdn.com/photos/images/newsfeed/000/221/156/welcome-to-internet.jpg)
 
 This repository serves as a reference for our coding standards, and an introduction to our products. You can read the common section, or jump to language specific pages. If you have any question that is not covered here, it's always a good idea to check on [MDN](https://developer.mozilla.org/en-US/) and [StackOverflow](http://stackoverflow.com)
 
