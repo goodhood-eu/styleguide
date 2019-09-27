@@ -2,14 +2,14 @@
 
 ![Welcome to the internet](https://i.kym-cdn.com/photos/images/newsfeed/000/221/156/welcome-to-internet.jpg)
 
-This repository serves as a reference for our coding standards, and an introduction to our products. You can read the common section, or jump to language specific pages. If you have any question that is not covered here, it's always a good idea to check on [MDN](https://developer.mozilla.org/en-US/) and [StackOverflow](http://stackoverflow.com)
+This repository serves as a reference for our coding standards. You can read the common section, or jump to language specific pages.
 
-- [JavaScript](javascript.md)
-- [React](react.md)
-- [CSS](css.md)
-- [Stylus](stylus.md)
-- [HTML](html.md)
-- [Pug](pug.md)
+- [JavaScript](javascript/README.md)
+- [React](react/README.md)
+- [CSS](css/README.md)
+- [Stylus](stylus/README.md)
+- [HTML](html/README.md)
+- [Pug](pug/README.md)
 
 ## Common section
 
