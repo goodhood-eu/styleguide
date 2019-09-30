@@ -1,109 +1,109 @@
 module.exports = {
-  "extends": "stylelint-config-standard",
-  "plugins": [
-    "stylelint-scss",
-    "stylelint-order"
+  extends: 'stylelint-config-standard',
+  plugins: [
+    'stylelint-scss',
+    'stylelint-order',
   ],
-  "rules": {
-    "block-opening-brace-newline-after": ["always"],
-    "block-closing-brace-newline-before": ["always"],
+  rules: {
+    'block-opening-brace-newline-after': ['always'],
+    'block-closing-brace-newline-before': ['always'],
 
-    "color-named": "never",
+    'color-named': 'never',
 
-    "declaration-property-value-whitelist": {
-      "/^transition/": ["/^opacity/", "/^transform/"]
+    'declaration-property-value-whitelist': {
+      '/^transition/': ['/^opacity/', '/^transform/'],
     },
-    "declaration-empty-line-before": null,
+    'declaration-empty-line-before': null,
 
-    "selector-max-id": 0,
-    "selector-class-pattern": "^[a-zA-Z]+(-[\\w-]+)?$",
-    "function-name-case": null,
+    'selector-max-id': 0,
+    'selector-class-pattern': '^[a-zA-Z]+(-[\\w-]+)?$',
+    'function-name-case': null,
 
-    "max-nesting-depth": [3, { ignoreAtRules: ["media"] }],
+    'max-nesting-depth': [3, { ignoreAtRules: ['media'] }],
 
-    "at-rule-no-unknown": null,
-    "at-rule-blacklist": ["extend"],
-    "scss/at-rule-no-unknown": true,
+    'at-rule-no-unknown': null,
+    'at-rule-blacklist': ['extend'],
+    'scss/at-rule-no-unknown': true,
 
-    "order/order": [
-      "dollar-variables",
-      "declarations",
-      "rules"
+    'order/order': [
+      'dollar-variables',
+      'declarations',
+      'rules',
     ],
-    "order/properties-order": [
-      "min-width",
-      "min-height",
-      "max-width",
-      "max-height",
+    'order/properties-order': [
+      'min-width',
+      'min-height',
+      'max-width',
+      'max-height',
 
-      "width",
-      "height",
+      'width',
+      'height',
 
-      "margin",
-      "margin-top",
-      "margin-right",
-      "margin-bottom",
-      "margin-left",
+      'margin',
+      'margin-top',
+      'margin-right',
+      'margin-bottom',
+      'margin-left',
 
-      "padding",
-      "padding-top",
-      "padding-right",
-      "padding-bottom",
-      "padding-left",
+      'padding',
+      'padding-top',
+      'padding-right',
+      'padding-bottom',
+      'padding-left',
 
-      "content",
-      "display",
+      'content',
+      'display',
 
-      "float",
-      "clear",
-      "vertical-align",
+      'float',
+      'clear',
+      'vertical-align',
 
-      "flex",
-      "flex-grow",
-      "flex-shrink",
-      "flex-basis",
-      "flex-direction",
+      'flex',
+      'flex-grow',
+      'flex-shrink',
+      'flex-basis',
+      'flex-direction',
 
-      "flex-order",
-      "flex-wrap",
-      "flex-flow",
+      'flex-order',
+      'flex-wrap',
+      'flex-flow',
 
-      "order",
-      "justify-content",
-      "align-self",
-      "align-items",
-      "align-content",
-      "flex-pack",
-      "flex-align",
+      'order',
+      'justify-content',
+      'align-self',
+      'align-items',
+      'align-content',
+      'flex-pack',
+      'flex-align',
 
-      "overflow",
-      "overflow-x",
-      "overflow-y",
+      'overflow',
+      'overflow-x',
+      'overflow-y',
 
-      "position",
-      "top",
-      "right",
-      "bottom",
-      "left",
+      'position',
+      'top',
+      'right',
+      'bottom',
+      'left',
 
-      "transform",
-      "transform-origin",
+      'transform',
+      'transform-origin',
 
-      "z-index",
+      'z-index',
 
-      "visibility",
-      "opacity",
+      'visibility',
+      'opacity',
 
-      "border",
-      "border-width",
-      "border-top",
-      "border-top-width",
-      "border-right",
-      "border-right-width",
-      "border-bottom",
-      "border-bottom-width",
-      "border-left",
-      "border-left-width"
+      'border',
+      'border-width',
+      'border-top',
+      'border-top-width',
+      'border-right',
+      'border-right-width',
+      'border-bottom',
+      'border-bottom-width',
+      'border-left',
+      'border-left-width',
     ],
   },
-}
+};

@@ -18,9 +18,12 @@
   },
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "lint": "stylelint test/*.scss  --config ./index.js"
+    "lint": "stylelint test/*.scss"
   },
   "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.17.1",
     "stylelint": "^11.0.0"
   },
   "dependencies": {
