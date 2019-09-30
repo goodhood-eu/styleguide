@@ -1,4 +1,4 @@
-# nebenan-stylelint-config
+# stylelint-config-nebenan
 
 > Shareable GoodHood-EU styleguide config for stylelint.
 
@@ -11,16 +11,16 @@ To see the rules that this config uses, please read the [config itself](./index.
 ## Installation
 
 ```bash
-npm install nebenan-stylelint-config --save-dev
+npm install stylelint-config-nebenan --save-dev
 ```
 
 ## Usage
 
-If you've installed `nebenan-stylelint-config` locally within your project, just set your `stylelint` config to:
+If you've installed `stylelint-config-nebenan` locally within your project, just set your `stylelint` config to:
 
 ```json
 {
-  "extends": "nebenan-stylelint-config"
+  "extends": "stylelint-config-nebenan"
 }
 ```
 

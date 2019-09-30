@@ -1,5 +1,5 @@
 {
-  "name": "nebenan-stylelint-config",
+  "name": "stylelint-config-nebenan",
   "description": "Shareable GoodHood-EU styleguide config for stylelint",
   "author": "Nebenan.de <max@nebenan.de>",
   "license": "MIT",
