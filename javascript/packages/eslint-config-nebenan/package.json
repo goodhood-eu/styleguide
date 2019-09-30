@@ -1,5 +1,5 @@
 {
-  "name": "nebenan-eslint-config",
+  "name": "eslint-config-nebenan",
   "description": "Shareable GoodHood-EU styleguide config for eslint",
   "author": "Nebenan.de <max@nebenan.de>",
   "license": "MIT",
@@ -10,7 +10,8 @@
   "keywords": [
     "linter",
     "config",
-    "eslint"
+    "eslint",
+    "react"
   ],
   "main": "index.js",
   "engines": {
@@ -24,8 +25,12 @@
     "eslint": "^6.4.0"
   },
   "dependencies": {
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.17.1"
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.17.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-config-nebenan-base": "^1.0.0"
   },
   "peerDependencies": {
     "eslint": "^6.4.0"

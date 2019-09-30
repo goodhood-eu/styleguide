@@ -1,4 +1,4 @@
-# nebenan-eslint-config
+# eslint-config-nebenan-base
 
 > Shareable GoodHood-EU styleguide config for eslint.
 
@@ -11,16 +11,16 @@ To see the rules that this config uses, please read the [config itself](./index.
 ## Installation
 
 ```bash
-npm install nebenan-eslint-config --save-dev
+npm install eslint-config-nebenan-base --save-dev
 ```
 
 ## Usage
 
-If you've installed `nebenan-eslint-config` locally within your project, just set your `eslint` config to:
+If you've installed `eslint-config-nebenan-base` locally within your project, just set your `eslint` config to:
 
 ```json
 {
-  "extends": "nebenan-eslint-config"
+  "extends": "eslint-config-nebenan-base"
 }
 ```
 
