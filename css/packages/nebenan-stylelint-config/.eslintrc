@@ -1,0 +1,3 @@
+{
+  "extends": "../../../javascript/packages/nebenan-eslint-config/index.js"
+}
