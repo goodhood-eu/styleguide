@@ -1,0 +1,34 @@
+{
+  "name": "nebenan-stylelint-config",
+  "description": "Shareable GoodHood-EU styleguide config for stylelint",
+  "author": "Nebenan.de <max@nebenan.de>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": "goodhood-eu/styleguide",
+  "bugs": "https://github.com/goodhood-eu/styleguide/issues",
+  "version": "1.0.0",
+  "keywords": [
+    "linter",
+    "config",
+    "stylelint"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": "^10.x.x"
+  },
+  "scripts": {
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "lint": "stylelint test/*.scss  --config ./index.js"
+  },
+  "devDependencies": {
+    "stylelint": "^11.0.0"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.11.1"
+  },
+  "peerDependencies": {
+    "stylelint": "^11.0.0"
+  }
+}
