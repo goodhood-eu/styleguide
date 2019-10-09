@@ -1,8 +1,8 @@
-// Expect-errors: no-var, no-unused-vars
+// expect: no-var, no-unused-vars
 var foo = 'bar';
 
-// Expect-errors: arrow-parens
+// expect: arrow-parens
 const func = awesome => `I return ${awesome}`;
 
-// Expect-errors: semi
+// expect: semi
 func()

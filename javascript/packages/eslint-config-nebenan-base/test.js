@@ -2,7 +2,8 @@ const { readFileSync } = require('fs');
 const { CLIEngine } = require('eslint');
 
 
-const testFile = './test/invalid.es';
+const testFile = process.argv[process.argv.length - 1];
+const specPrefix = '// expect:';
 
 const cli = new CLIEngine();
 const result = cli.executeOnFiles([testFile]);
@@ -17,14 +18,16 @@ const collectLinterErrors = (acc, { line, ruleId }) => ({
 });
 
 const parseSpec = (spec) => {
-  const rules = spec.replace('// Expect-errors:', '');
+  if (!spec || !spec.includes(specPrefix)) return [];
+
+  const rules = spec.replace(specPrefix, '');
   return rules.split(',').map((rule) => rule.trim());
 };
 
 const formatError = (err) => `[Line ${err.line}] ${err.message}`;
-const diff = (arr, compareArr) => arr.filter((err) => compareArr.indexOf(err) < 0);
+const diff = (arr, compareArr) => arr.filter((err) => !compareArr.includes(err));
 
-const checkedRules = report[0].messages.reduce(collectLinterErrors, {});
+const checkedRules = ((report[0] && report[0].messages) || []).reduce(collectLinterErrors, {});
 
 const collectErrors = (acc, line) => {
   const specRules = parseSpec(testFileLines[line - 2]);
@@ -46,6 +49,6 @@ const collectErrors = (acc, line) => {
 const errors = Object.keys(checkedRules).reduce(collectErrors, []);
 
 if (errors.length) {
-  console.error('Errors found:\n', errors.map(formatError).join('\n'));
+  console.error(`Errors found:\n${errors.map(formatError).join('\n')}`);
   process.exit(1);
 }
