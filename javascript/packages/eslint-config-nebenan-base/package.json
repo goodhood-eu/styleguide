@@ -18,8 +18,8 @@
   },
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "eslint:valid": "node ./test.js ./test/valid.es",
-    "eslint:invalid": "node ./test.js ./test/invalid.es",
+    "eslint:valid": "node ../test.js ./test/valid.es",
+    "eslint:invalid": "node ../test.js ./test/invalid.es",
     "test": "npm run eslint:valid && npm run eslint:invalid"
   },
   "devDependencies": {

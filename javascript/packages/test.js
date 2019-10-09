@@ -1,6 +1,5 @@
 const { readFileSync } = require('fs');
-const { CLIEngine } = require('eslint');
-
+const { CLIEngine } = require(require.resolve('eslint', { paths: [process.cwd()] }));
 
 const testFile = process.argv[process.argv.length - 1];
 const specPrefix = '// expect:';
