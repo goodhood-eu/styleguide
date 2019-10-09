@@ -35,11 +35,11 @@ const collectErrors = (acc, line) => {
   const extraCheckedRules = diff(checkedRules[line], specRules);
 
   if (notCheckedRules.length) {
-    acc.push({ line, message: `Linter should check this rules: ${notCheckedRules.join(',')}` });
+    acc.push({ line, message: `Linter should check this rules: ${notCheckedRules.join(', ')}` });
   }
 
   if (extraCheckedRules.length) {
-    acc.push({ line, message: `Linter should not check this rules: ${extraCheckedRules.join(',')}` });
+    acc.push({ line, message: `Linter should not check this rules: ${extraCheckedRules.join(', ')}` });
   }
 
   return acc;
