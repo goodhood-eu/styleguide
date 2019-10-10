@@ -5,8 +5,23 @@ module.exports = {
     'stylelint-order',
   ],
   rules: {
+    'at-rule-empty-line-before': ['always', {
+      except: [
+        'blockless-after-same-name-blockless',
+        'first-nested',
+      ],
+      ignore: ['after-comment'],
+      ignoreAtRules: ['if', 'else'],
+    }],
+
+    'at-rule-no-unknown': null,
+    'at-rule-blacklist': ['extend'],
+
     'block-opening-brace-newline-after': ['always'],
     'block-closing-brace-newline-before': ['always'],
+    'block-closing-brace-newline-after': ['always', {
+      ignoreAtRules: ['if', 'else'],
+    }],
 
     'color-named': 'never',
 
@@ -15,15 +30,24 @@ module.exports = {
     },
     'declaration-empty-line-before': null,
 
-    'selector-max-id': 0,
-    'selector-class-pattern': '^[a-zA-Z]+(-[\\w-]+)?$',
-    'function-name-case': null,
+    'function-name-case': 'lower',
 
     'max-nesting-depth': [3, { ignoreAtRules: ['media'] }],
+    'number-leading-zero': 'never',
+    'no-descending-specificity': null,
 
-    'at-rule-no-unknown': null,
-    'at-rule-blacklist': ['extend'],
+    'selector-max-id': 0,
+    'selector-class-pattern': '^[a-zA-Z]+(-[\\w-]+)?$',
+
     'scss/at-rule-no-unknown': true,
+    'scss/at-function-parentheses-space-before': 'never',
+    'scss/at-else-if-parentheses-space-before': 'never',
+    'scss/at-function-pattern': '^[a-z0-9_\\-]+$',
+    'scss/at-mixin-pattern': '^[a-z0-9_\\-]+$',
+    'scss/comment-no-loud': true,
+    'scss/declaration-nested-properties': 'never',
+    'scss/dollar-variable-pattern': '^[a-z0-9_\\-]+$',
+    'scss/percent-placeholder-pattern': '^we-are-not-using-placeholders-at-this-time$',
 
     'order/order': [
       'dollar-variables',
