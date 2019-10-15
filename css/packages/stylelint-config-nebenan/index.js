@@ -25,9 +25,6 @@ module.exports = {
 
     'color-named': 'never',
 
-    'declaration-property-value-whitelist': {
-      '/^transition/': ['/^opacity/', '/^transform/'],
-    },
     'declaration-empty-line-before': null,
 
     'function-name-case': 'lower',
