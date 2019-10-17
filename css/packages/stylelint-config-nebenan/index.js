@@ -40,6 +40,7 @@ module.exports = {
     'scss/at-function-parentheses-space-before': 'never',
     'scss/at-else-if-parentheses-space-before': 'never',
     'scss/at-function-pattern': '^[a-z0-9_\\-]+$',
+    'scss/at-mixin-argumentless-call-parentheses': 'never',
     'scss/at-mixin-pattern': '^[a-z0-9_\\-]+$',
     'scss/comment-no-loud': true,
     'scss/declaration-nested-properties': 'never',
