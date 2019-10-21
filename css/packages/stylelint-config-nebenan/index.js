@@ -49,6 +49,11 @@ module.exports = {
 
     'order/order': [
       'dollar-variables',
+      'custom-properties',
+      {
+        type: 'at-rule',
+        name: 'include',
+      },
       'declarations',
       'rules',
     ],
