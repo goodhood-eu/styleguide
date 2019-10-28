@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "goodhood-eu/styleguide",
   "bugs": "https://github.com/goodhood-eu/styleguide/issues",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "linter",
     "config",
@@ -29,7 +29,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "eslint-config-nebenan-base": "^1.0.1"
+    "eslint-config-nebenan-base": "^1.0.2"
   },
   "peerDependencies": {
     "eslint": "^6.4.0"
