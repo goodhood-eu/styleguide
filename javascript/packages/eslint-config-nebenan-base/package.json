@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "goodhood-eu/styleguide",
   "bugs": "https://github.com/goodhood-eu/styleguide/issues",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "linter",
     "config",
@@ -23,7 +23,7 @@
     "test": "npm run eslint:valid && npm run eslint:invalid"
   },
   "devDependencies": {
-    "eslint": "^6.4.0"
+    "eslint": "^6.6.0"
   },
   "dependencies": {
     "eslint-config-airbnb-base": "^14.0.0",
