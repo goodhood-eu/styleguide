@@ -6,16 +6,13 @@
   "readmeFilename": "README.md",
   "repository": "goodhood-eu/styleguide",
   "bugs": "https://github.com/goodhood-eu/styleguide/issues",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "linter",
     "config",
     "eslint"
   ],
   "main": "index.js",
-  "engines": {
-    "node": "^10.x.x"
-  },
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "eslint:valid": "node ../test.js ./test/valid.es",
