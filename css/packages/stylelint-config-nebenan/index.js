@@ -56,6 +56,10 @@ module.exports = {
       },
       'declarations',
       'rules',
+      {
+        type: 'at-rule',
+        name: 'keyframes',
+      },
     ],
     'order/properties-order': [
       'min-width',
