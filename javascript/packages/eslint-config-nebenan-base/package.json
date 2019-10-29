@@ -15,8 +15,6 @@
   "main": "index.js",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "eslint:valid": "node ../test.js ./test/valid.es",
-    "eslint:invalid": "node ../test.js ./test/invalid.es",
     "test": "node ../../../test ./test js"
   },
   "devDependencies": {

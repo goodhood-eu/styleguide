@@ -2,12 +2,12 @@ const { findFiles } = require('./utils');
 
 
 const fileRegExpMap = {
-  css: /\.css$/,
+  css: /\.scss$/,
   js: /\.(js|es)$/,
 };
 
 const fileProcessorMap = {
-  css: null,
+  css: require('./stylelint'),
   js: require('./eslint'),
 };
 

@@ -36,13 +36,14 @@ exports.findFiles = (dir, regExp) => {
 };
 
 
-exports.collectLinterErrors = (acc, { line, ruleId }) => {
+exports.collectLinterErrors = (acc, { line, ruleId, rule }) => {
   const lineRecord = acc.find((item) => item.line === line);
+  const ruleKey = ruleId || rule;
 
   if (lineRecord) {
-    lineRecord.rules.push(ruleId);
+    lineRecord.rules.push(ruleKey);
   } else {
-    acc.push({ line, rules: [ruleId] });
+    acc.push({ line, rules: [ruleKey] });
   }
 
   return acc;
