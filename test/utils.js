@@ -1,5 +1,5 @@
-const { readdirSync, statSync, readFileSync } = require('fs');
-const { join, relative } = require('path');
+const { readFileSync } = require('fs');
+const { relative } = require('path');
 
 
 const specPrefix = '// expect:';
@@ -15,26 +15,6 @@ const parseSpec = (spec) => {
   const rules = spec.replace(specPrefix, '');
   return rules.split(',').map((rule) => rule.trim());
 };
-
-exports.findFiles = (dir, regExp) => {
-  const files = readdirSync(dir, 'utf8');
-
-  const collect = (acc, file) => {
-    const filePath = join(dir, file);
-    const isDir = statSync(filePath).isDirectory();
-
-    if (isDir) {
-      const children = exports.findFiles(filePath, regExp);
-      return acc.concat(children);
-    }
-
-    if (!regExp.test(file)) return acc;
-    return acc.concat([filePath]);
-  };
-
-  return files.reduce(collect, []);
-};
-
 
 exports.collectLinterErrors = (acc, { line, ruleId, rule }) => {
   const lineRecord = acc.find((item) => item.line === line);
