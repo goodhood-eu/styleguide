@@ -20,3 +20,7 @@ objQuoteProps.hasOwnProperty('a');
 
 // expect: prefer-object-spread
 const mergedObj = Object.assign({}, { a: 1 }, { b: 2 });
+
+const objectProps = { a: 1 };
+// expect: dot-notation
+const props = objectProps['a'];
