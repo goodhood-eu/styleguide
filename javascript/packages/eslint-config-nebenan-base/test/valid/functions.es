@@ -31,3 +31,10 @@ const arrowInArrow = () => (argsArray >= 1 ? 1 : 2);
 const lineBreak = () => (
   1
 );
+
+const conditionReturn = (arg) => {
+  if (arg) {
+    return true;
+  }
+  return false;
+};

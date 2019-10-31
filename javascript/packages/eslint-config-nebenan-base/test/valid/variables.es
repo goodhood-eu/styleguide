@@ -1,5 +1,5 @@
 const foo = 'bar';
-console.info('used variable', foo);
+console.warn('used variable', foo);
 
 /* eslint-disable no-unused-vars */
 
@@ -8,8 +8,6 @@ const var_snake_case = 'ok';
 const float = .2;
 
 const _underscoredVariable = 1;
-
-const operatorOneLine = 1 + 1;
 
 let canChange = 1;
 canChange = 2;
@@ -31,3 +29,14 @@ const escapedString = 'Ba\' \t';
 
 let plusPlus = 1;
 plusPlus += 1;
+
+const number = Number(1);
+const numberParse = parseInt('1', 10);
+
+const str = String('string');
+
+const bool = Boolean('string');
+
+class Cls {}
+// expect: new-cap
+const instance = new Cls();

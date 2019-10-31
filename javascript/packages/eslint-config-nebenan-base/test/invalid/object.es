@@ -24,3 +24,6 @@ const mergedObj = Object.assign({}, { a: 1 }, { b: 2 });
 const objectProps = { a: 1 };
 // expect: dot-notation
 const props = objectProps['a'];
+
+// expect: no-multi-spaces, object-curly-spacing
+const spacedObject = {  a: 1};

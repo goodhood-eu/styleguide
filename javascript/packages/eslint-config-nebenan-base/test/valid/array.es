@@ -6,3 +6,5 @@ const alwaysReturn = [].filter((item) => {
   if (item) return true;
   return false;
 });
+
+const arrayWithNumbers = [1, 2];

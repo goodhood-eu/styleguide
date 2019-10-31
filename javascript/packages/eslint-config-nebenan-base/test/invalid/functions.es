@@ -42,3 +42,12 @@ const lineBreak = () =>
 const lineBreakAlternative = () =>
 // expect: implicit-arrow-linebreak
   (1);
+
+const conditionReturn = (arg) => {
+  if (arg) {
+    return true;
+  // expect: no-else-return
+  } else {
+    return false;
+  }
+};

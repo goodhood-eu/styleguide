@@ -7,3 +7,6 @@ const arrayInstance = new Array();
 const noReturn = [].filter((item) => {
   if (item) return true;
 });
+
+// expect: array-bracket-spacing, no-multi-spaces
+const spacedArray = [  1, 2];

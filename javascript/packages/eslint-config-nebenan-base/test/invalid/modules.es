@@ -19,5 +19,4 @@ import '../../package.json';
 // expect: import/no-mutable-exports
 let mutable = 1;
 mutable = 2;
-
 export { mutable };

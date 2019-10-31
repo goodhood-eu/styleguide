@@ -3,14 +3,6 @@ var foo = 'bar';
 
 /* eslint-disable no-unused-vars */
 
-// expect: no-mixed-operators
-const check = true && true || true || true;
-
-const operatorLineBreak = 1
-// expect: operator-linebreak
-+
-2;
-
 const constVar = 1;
 // expect: no-const-assign
 constVar = 2;
@@ -42,3 +34,18 @@ const multiAssignA = multiAssignB = multiAssignC = 1;
 let plusPlus = 1;
 // expect: no-plusplus
 plusPlus++;
+
+// expect: no-new-wrappers
+const number = new Number(1);
+// expect: radix
+const numberParse = parseInt('1');
+
+// expect: no-new-wrappers
+const str = new String('string');
+
+// expect: no-new-wrappers
+const bool = new Boolean('string');
+
+class cls {}
+// expect: new-cap
+const instance = new cls();
