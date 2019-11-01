@@ -1,6 +1,42 @@
-.test {
-  color: #f00;
+.no,
+.nope {
+  content: 'declaration of multiple selectors';
+}
 
-  font-size: 18px;
-  line-height: 1.2;
+.bad-naming {
+  content: 'selector naming';
+}
+
+.color-value {
+  content: 'color value';
+  color: #f1f1f1;
+}
+
+.semicolon {
+  content: 'semicolon';
+}
+
+.nesting {
+  .child-1 {
+    .child-2 {
+      .child-3 {
+        content: 'nesting';
+      }
+    }
+  }
+}
+
+.new-line-after-brackets {
+  content: 'content';
+}
+
+.float-number {
+  font-size: .5;
+}
+
+.prop-nesting {
+  // expect: scss/declaration-nested-properties
+  font: {
+    size: 5px;
+  }
 }
