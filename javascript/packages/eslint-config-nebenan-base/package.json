@@ -15,9 +15,8 @@
   "main": "index.js",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "eslint:valid": "node ../test.js ./test/valid.es",
-    "eslint:invalid": "node ../test.js ./test/invalid.es",
-    "test": "npm run eslint:valid && npm run eslint:invalid"
+    "test": "node ../../../test ./test js",
+    "prepublishOnly": "npm test"
   },
   "devDependencies": {
     "eslint": "^6.6.0"

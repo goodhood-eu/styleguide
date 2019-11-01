@@ -1,29 +1,35 @@
+// expect: selector-list-comma-newline-after
 .no, .nope {
-  content: 'many classes in one line';
+  content: 'declaration of multiple selectors';
 }
 
+// expect: selector-class-pattern
 .bad_naming {
-  content: 'class poorly named';
+  content: 'selector naming';
 }
 
-#lol-no {
+// expect: selector-max-id
+#id-selector {
   content: 'id selects';
 }
 
-.test-1 {
-  content: 'named color';
+.color-value {
+  content: 'color value';
+  // expect: color-named
   color: hotpink;
 }
 
-.test-2 {
+.semicolon {
+  // expect: declaration-block-trailing-semicolon
   content: 'semicolon'
 }
 
-.test-3 {
-  .test-3-1 {
-    .test-3-2 {
-      .test-3-3 {
-        .test-3-4 {
+.nesting {
+  .child-1 {
+    .child-2 {
+      .child-3 {
+        // expect: max-nesting-depth
+        .child-4 {
           content: 'nesting that is too deep';
         }
       }
@@ -31,6 +37,20 @@
   }
 }
 
-.test-4 {
+// expect: block-no-empty
+.empty-block {
 
+}
+
+.extend-forbidden {
+  // expect: at-rule-blacklist
+  @extend .parent;
+}
+
+// expect: block-opening-brace-newline-after, block-closing-brace-newline-before
+.new-line-after-brackets { content: 'content'; }
+
+.float-number {
+  // expect: number-leading-zero
+  font-size: 0.5;
 }
