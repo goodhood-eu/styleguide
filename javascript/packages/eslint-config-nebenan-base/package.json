@@ -15,7 +15,8 @@
   "main": "index.js",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "test": "node ../../../test ./test js"
+    "test": "node ../../../test ./test js",
+    "prepublishOnly": "npm test"
   },
   "devDependencies": {
     "eslint": "^6.6.0"
