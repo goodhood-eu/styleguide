@@ -51,3 +51,6 @@ const conditionReturn = (arg) => {
     return false;
   }
 };
+
+// expect: func-style
+function myFunc() {}

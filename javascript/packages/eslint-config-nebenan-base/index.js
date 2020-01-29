@@ -30,6 +30,7 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     'no-floating-decimal': 'off',
     'func-names': ['error', 'never'],
+    'func-style': ['error', 'expression'],
     camelcase: 'off',
     'consistent-return': 'off',
     'no-mixed-operators': ['error', { allowSamePrecedence: true }],
