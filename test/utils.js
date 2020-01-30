@@ -16,6 +16,15 @@ const parseSpec = (spec) => {
   return rules.split(',').map((rule) => rule.trim());
 };
 
+const findSpecLineIndex = (line, fileLines) => {
+  for (let i = line - 2; i >= 0; i -= 1) {
+    if (!fileLines[i].trim()) continue;
+    return i;
+  }
+
+  return line - 2;
+};
+
 exports.collectLinterErrors = (acc, { line, ruleId, rule }) => {
   const lineRecord = acc.find((item) => item.line === line);
   const ruleKey = ruleId || rule;
@@ -33,7 +42,8 @@ exports.createTestErrorsCollector = (filePath) => {
   const fileLines = readFileSync(filePath, 'utf8').split('\n');
 
   return (acc, { line, rules }) => {
-    const specRules = parseSpec(fileLines[line - 2]);
+    const specLineIndex = findSpecLineIndex(line, fileLines);
+    const specRules = parseSpec(fileLines[specLineIndex]);
 
     const notCheckedRules = arrayDiff(specRules, rules);
     const extraCheckedRules = arrayDiff(rules, specRules);

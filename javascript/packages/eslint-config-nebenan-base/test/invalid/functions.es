@@ -15,7 +15,7 @@ const returnInCurly = (a) => { return a; };
 const func = awesome => 'Arrow parens';
 
 if (func === 1) {
-  // expect: no-inner-declarations
+  // expect: no-inner-declarations, func-style
   function blockScope() {}
 }
 
