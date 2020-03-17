@@ -31,6 +31,7 @@ When you don't know if you can use a certain way of styling, see [https://canius
     - [Imports](#imports)
     - [Extend](#extend)
     - [Functions](#functions)
+1. [CSS Modules](#css-modules)
 
 ## Terminology
 
@@ -421,6 +422,7 @@ We prefer using mixins over functions. If a function is absolutely necessary, do
 - Use camelCase for class names
 - Always use `.module.css` or `.module.scss` extension
 - Do not expect any scss variables or mixins to be defined. You have to import them yourself.
+- Prefer SCSS variables over CSS Module variables
 - Css or Sass specific rules still apply (CSS Modules rules take precedence)
 
 ```scss
@@ -433,6 +435,12 @@ We prefer using mixins over functions. If a function is absolutely necessary, do
 .fooBar {
     color: red;
 }
+
+// bad 
+@value v-primary: #BF4040;
+
+// good
+$primaryColor: #BF4040;
 ```
 
 ```jsx
