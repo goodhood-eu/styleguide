@@ -1,0 +1,10 @@
+.amotherClassName {
+  // expect: property-no-unknown
+  composes: className from "./other.module.scss";
+}
+
+.otherClassName {
+  // expect: property-no-unknown
+  composes: className;
+  color: $red;
+}
