@@ -2,7 +2,7 @@
 
 *A mostly reasonable approach to CSS and Sass*
 
-Please read [SMACSS](https://smacss.com). When you don't know if you can use a certain way of styling, see [https://caniuse.com](https://caniuse.com) to check. Language reference: [https://sass-lang.com/](https://sass-lang.com/).
+When you don't know if you can use a certain way of styling, see [https://caniuse.com](https://caniuse.com) to check. Language reference: [https://sass-lang.com/](https://sass-lang.com/).
 
 ## Table of Contents
 
@@ -219,7 +219,9 @@ Again: **never nest ID selectors!**
 
 If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should **never** need to do this.
 
-### Naming conventions
+### Naming conventions (DEPRECATED)
+
+__DEPRECATED__: We keep this section as information about how class names in legacy scss code were structure. Use [CSS Modules](#css-modules) instead.
 
 We are using a subset of [SMACSS](https://smacss.com) and use prefixes to separate elements on the page. Legend:
 
@@ -408,5 +410,39 @@ When using HSL or RGB notation, always add a single space after a comma (,) and 
 ### Functions
 
 We prefer using mixins over functions. If a function is absolutely necessary, document where it is used and why it wasn't possible to create a mixin.
+
+## CSS Modules
+
+[CSS Modules documentation](https://github.com/css-modules/css-modules)
+
+- Prefer using CSS Modules over global css code
+- Use camelCase for class names
+- Always use `.module.css` or `.module.scss` extension
+- Do not expect any scss variables or mixins to be defined. You have to import them yourself.
+- Css or Sass specific rules still apply (CSS Modules rules take precedence)
+
+```scss
+// bad
+.foo-bar {
+  color: red;
+}
+
+// good
+.fooBar {
+    color: red;
+}
+```
+
+```jsx
+import styles from "./foo.module.scss"
+
+// ...
+
+// bad
+return <div className={styles['foo-bar']}>
+
+// good
+return <div className={styles.fooBar}>
+```
 
 **[⬆ back to top](#table-of-contents)**
