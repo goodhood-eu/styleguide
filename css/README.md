@@ -411,6 +411,8 @@ When using HSL or RGB notation, always add a single space after a comma (,) and 
 
 We prefer using mixins over functions. If a function is absolutely necessary, document where it is used and why it wasn't possible to create a mixin.
 
+**[⬆ back to top](#table-of-contents)**
+
 ## CSS Modules
 
 [CSS Modules documentation](https://github.com/css-modules/css-modules)
