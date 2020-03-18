@@ -1,4 +1,4 @@
-# CSS / Sass Styleguide
+# CSS / Sass / CSS Modules Styleguide
 
 *A mostly reasonable approach to CSS and Sass*
 
@@ -78,8 +78,8 @@ Finally, properties are what give the selected elements of a rule declaration th
 ### Formatting
 
 * Use soft tabs (2 spaces) for indentation.
-* Prefer dashes over camelCasing in class names.
-  - Underscores and PascalCasing are okay if you are using BEM (see [OOCSS and BEM](#oocss-and-bem) below).
+* Use camelCase in class names (see [CSS Modules](#css-modules)).
+  - Use dashes outside of CSS modules
 * Do not use ID selectors.
 * When using multiple selectors in a rule declaration, give each selector its own line.
 * Put a space before the opening brace `{` in rule declarations.
@@ -219,72 +219,6 @@ When selectors become this long, you're likely writing CSS that is:
 Again: **never nest ID selectors!**
 
 If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should **never** need to do this.
-
-### Naming conventions (DEPRECATED)
-
-__DEPRECATED__: We keep this section as information about how class names in legacy scss code were structure. Use [CSS Modules](#css-modules) instead.
-
-We are using a subset of [SMACSS](https://smacss.com) and use prefixes to separate elements on the page. Legend:
-
-- `.p-` page
-- `.c-` component
-- `.ui-` UI-Kit element
-- `.is-` or `.has-` state (example: `is-active`)
-
-Page styles may override component styles when needed.
-
-```scss
-.p-home {
-  color: #333;
-
-  .c-header {
-    background: #000;
-  }
-
-  .c-button {
-    font-size: 20px;
-
-    &.is-active {
-      color: #f00;
-    }
-  }
-}
-
-```
-
-Use underscores to join multi-word names: `p-this_is_a_long_page_name` and dashes to reflect nesting. Nested element classes inherit their ancestor names. This allows greater flexibility and name reuse. Example:
-
-```html
-//- This is the markup
-<header class="c-header">
-  <h1 class="c-header-title">Title</h1>
-  <nav class="c-header-navigation">
-    <a href="/about" class="c-header-navigation-link">About</a>
-  </nav>
-</header>
-```
-
-```scss
-.c-header {
-  overflow: hidden;
-}
-
-.c-header-title {
-  font-size: 20px;
-}
-
-.c-header-navigation {
-  float: right;
-}
-
-.c-header-navigation-link {
-  font-style: italic;
-}
-```
-
-As a rule of thumb, avoid unnecessary nesting in Sass. At most, aim for three levels. If you can't help it, step back and rethink your overall strategy.
-
-Always put a class on everything. It is only OK to use a tagName selector if you're styling a leaf node.
 
 ### Units
 
