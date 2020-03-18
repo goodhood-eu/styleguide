@@ -422,8 +422,7 @@ We prefer using mixins over functions. If a function is absolutely necessary, do
 - Use camelCase for class names
 - Always use `.module.css` or `.module.scss` extension
 - Do not expect any scss variables or mixins to be defined. You have to import them yourself.
-- Prefer Sass variables over CSS Module variables
-- Do not use CSS Modules composition feature. Use Sass mixins instead.
+- Use Sass whenever possible over similar CSS module functionality (composition, variables, import)
 - Css or Sass specific rules still apply (CSS Modules rules take precedence)
 
 ```scss
