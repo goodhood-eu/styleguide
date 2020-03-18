@@ -1,0 +1,17 @@
+$red: #008000;
+
+:import("other.module.scss") {
+  my-content: content;
+}
+
+.camelCase {
+  content: my-content;
+}
+
+.className {
+  color: $red;
+}
+
+:export {
+  red: $red;
+}

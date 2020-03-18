@@ -1,8 +1,8 @@
-# CSS / Sass Styleguide
+# CSS / Sass / CSS Modules Styleguide
 
 *A mostly reasonable approach to CSS and Sass*
 
-Please read [SMACSS](https://smacss.com). When you don't know if you can use a certain way of styling, see [https://caniuse.com](https://caniuse.com) to check. Language reference: [https://sass-lang.com/](https://sass-lang.com/).
+When you don't know if you can use a certain way of styling, see [https://caniuse.com](https://caniuse.com) to check. Sass language reference: [https://sass-lang.com/](https://sass-lang.com/). What are CSS Modules: [CSS Modules documentation](https://github.com/css-modules/css-modules).
 
 ## Table of Contents
 
@@ -31,6 +31,7 @@ Please read [SMACSS](https://smacss.com). When you don't know if you can use a c
     - [Imports](#imports)
     - [Extend](#extend)
     - [Functions](#functions)
+1. [CSS Modules](#css-modules)
 
 ## Terminology
 
@@ -77,8 +78,8 @@ Finally, properties are what give the selected elements of a rule declaration th
 ### Formatting
 
 * Use soft tabs (2 spaces) for indentation.
-* Prefer dashes over camelCasing in class names.
-  - Underscores and PascalCasing are okay if you are using BEM (see [OOCSS and BEM](#oocss-and-bem) below).
+* Use camelCase in class names (see [CSS Modules](#css-modules)).
+  - Use dashes outside of CSS modules
 * Do not use ID selectors.
 * When using multiple selectors in a rule declaration, give each selector its own line.
 * Put a space before the opening brace `{` in rule declarations.
@@ -184,11 +185,11 @@ For more on this subject, read [CSS Wizardry's article](http://csswizardry.com/2
 
 ### Variables
 
-Prefer camelCased variable names (e.g. `$myVariable`) over dash-cased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_myVariable`).
+Prefer dash-cased or camelCased variable names (e.g. `$my-variable`) over snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_my-variable`).
 
 ### Mixins
 
-Mixins should be used to DRY up your code, add clarity, or abstract complexity--in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
+Mixins should be used to DRY up your code, add clarity, or abstract complexity - in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
 
 ### Extend directive
 
@@ -218,70 +219,6 @@ When selectors become this long, you're likely writing CSS that is:
 Again: **never nest ID selectors!**
 
 If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should **never** need to do this.
-
-### Naming conventions
-
-We are using a subset of [SMACSS](https://smacss.com) and use prefixes to separate elements on the page. Legend:
-
-- `.p-` page
-- `.c-` component
-- `.ui-` UI-Kit element
-- `.is-` or `.has-` state (example: `is-active`)
-
-Page styles may override component styles when needed.
-
-```scss
-.p-home {
-  color: #333;
-
-  .c-header {
-    background: #000;
-  }
-
-  .c-button {
-    font-size: 20px;
-
-    &.is-active {
-      color: #f00;
-    }
-  }
-}
-
-```
-
-Use underscores to join multi-word names: `p-this_is_a_long_page_name` and dashes to reflect nesting. Nested element classes inherit their ancestor names. This allows greater flexibility and name reuse. Example:
-
-```html
-//- This is the markup
-<header class="c-header">
-  <h1 class="c-header-title">Title</h1>
-  <nav class="c-header-navigation">
-    <a href="/about" class="c-header-navigation-link">About</a>
-  </nav>
-</header>
-```
-
-```scss
-.c-header {
-  overflow: hidden;
-}
-
-.c-header-title {
-  font-size: 20px;
-}
-
-.c-header-navigation {
-  float: right;
-}
-
-.c-header-navigation-link {
-  font-style: italic;
-}
-```
-
-As a rule of thumb, avoid unnecessary nesting in Sass. At most, aim for three levels. If you can't help it, step back and rethink your overall strategy.
-
-Always put a class on everything. It is only OK to use a tagName selector if you're styling a leaf node.
 
 ### Units
 
@@ -408,5 +345,41 @@ When using HSL or RGB notation, always add a single space after a comma (,) and 
 ### Functions
 
 We prefer using mixins over functions. If a function is absolutely necessary, document where it is used and why it wasn't possible to create a mixin.
+
+**[⬆ back to top](#table-of-contents)**
+
+## CSS Modules
+
+- Prefer using CSS Modules over global css code
+- Use camelCase for class names
+- Use simple class and variable names since both are scoped to the module
+- Always use `.module.css` or `.module.scss` extension
+- Do not expect any scss variables or mixins to be defined. You have to import them yourself.
+- Use Sass whenever possible over similar CSS module functionality (composition, variables, import)
+- CSS or Sass specific rules still apply (CSS Modules rules take precedence)
+
+```scss
+// bad
+.foo-bar {
+  color: red;
+}
+
+// good
+.fooBar {
+  color: red;
+}
+```
+
+```jsx
+import styles from "./foo.module.scss"
+
+// ...
+
+// bad
+return <div className={styles['foo-bar']}>
+
+// good
+return <div className={styles.fooBar}>
+```
 
 **[⬆ back to top](#table-of-contents)**

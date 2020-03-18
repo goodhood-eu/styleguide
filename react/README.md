@@ -19,6 +19,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Tags](#tags)
   1. [Methods](#methods)
   1. [Ordering](#ordering)
+  1. [CSS Modules](#css-modules)
 
 ## Basic Rules
 
@@ -585,4 +586,54 @@ We don’t recommend using indexes for keys if the order of items may change.
     Link.defaultProps = defaultProps;
 
     export default Link;
+    ```
+
+## CSS Modules
+
+### Specificity
+
+Contrary to 'global css', CSS modules do not allow overriding styles inside components out of the box.
+
+  - Use `className` prop to override styles of the root element.
+
+    ```jsx
+    // signup_button.js
+    import styles from "signup_button.module.scss"
+
+    <Button className={styles.button} />
+    ```
+
+    ```jsx
+    // button.js
+    import styles from "button.module.scss"
+
+    const Button = ({ className: passedClassName }) => {
+      const className = clsx(styles.button, passedClassName);
+      return <div className={className}>Click me</button>
+    }
+    ```
+
+  - Use `theme` prop to override multiple styles inside a component
+
+    ```jsx
+    // signup_button.js
+    import buttonStyles from "signup_button.module.scss"
+
+    <Button theme={buttonStyles} />
+    ```
+
+    ```jsx
+    // button.js
+    import styles from "button.module.scss"
+
+    const Button = ({ theme }) => {
+      const className = clsx(styles.button, theme.button);
+      const iconClassName = clsx(styles.icon, theme.icon);
+      return (
+        <div className={className}>
+          Click me
+          <span className={iconClassName}>icon</span>
+        </button>
+        )
+    }
     ```

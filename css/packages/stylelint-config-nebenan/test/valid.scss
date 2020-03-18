@@ -33,10 +33,3 @@
 .float-number {
   font-size: .5;
 }
-
-.prop-nesting {
-  // expect: scss/declaration-nested-properties
-  font: {
-    size: 5px;
-  }
-}

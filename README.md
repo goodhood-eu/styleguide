@@ -7,7 +7,6 @@ This repository serves as a reference for our coding standards. You can read the
 - [JavaScript](javascript/README.md)
 - [React](react/README.md)
 - [CSS](css/README.md)
-- [Stylus](stylus/README.md)
 - [HTML](html/README.md)
 - [Pug](pug/README.md)
 
