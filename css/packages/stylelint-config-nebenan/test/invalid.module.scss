@@ -1,10 +1,17 @@
 .amotherClassName {
-  // expect: property-no-unknown
+  // expect: property-no-unknown, value-keyword-case
   composes: className from "./other.module.scss";
 }
 
 .otherClassName {
-  // expect: property-no-unknown
+  // expect: property-no-unknown, value-keyword-case
   composes: className;
   color: $red;
+}
+
+.prop-nesting {
+  // expect: scss/declaration-nested-properties
+  font: {
+    size: 5px;
+  }
 }

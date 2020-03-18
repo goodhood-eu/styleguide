@@ -2,7 +2,7 @@
 
 *A mostly reasonable approach to CSS and Sass*
 
-When you don't know if you can use a certain way of styling, see [https://caniuse.com](https://caniuse.com) to check. Language reference: [https://sass-lang.com/](https://sass-lang.com/).
+When you don't know if you can use a certain way of styling, see [https://caniuse.com](https://caniuse.com) to check. Sass language reference: [https://sass-lang.com/](https://sass-lang.com/). What are CSS Modules: [CSS Modules documentation](https://github.com/css-modules/css-modules).
 
 ## Table of Contents
 
@@ -185,11 +185,11 @@ For more on this subject, read [CSS Wizardry's article](http://csswizardry.com/2
 
 ### Variables
 
-Prefer camelCased variable names (e.g. `$myVariable`) over dash-cased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_myVariable`).
+Prefer dash-cased or camelCased variable names (e.g. `$my-variable`) over snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_my-variable`).
 
 ### Mixins
 
-Mixins should be used to DRY up your code, add clarity, or abstract complexity--in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
+Mixins should be used to DRY up your code, add clarity, or abstract complexity - in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
 
 ### Extend directive
 
@@ -350,10 +350,9 @@ We prefer using mixins over functions. If a function is absolutely necessary, do
 
 ## CSS Modules
 
-[CSS Modules documentation](https://github.com/css-modules/css-modules)
-
 - Prefer using CSS Modules over global css code
 - Use camelCase for class names
+- Use simple class and variable names since both are scoped to the module
 - Always use `.module.css` or `.module.scss` extension
 - Do not expect any scss variables or mixins to be defined. You have to import them yourself.
 - Use Sass whenever possible over similar CSS module functionality (composition, variables, import)
@@ -367,14 +366,8 @@ We prefer using mixins over functions. If a function is absolutely necessary, do
 
 // good
 .fooBar {
-    color: red;
+  color: red;
 }
-
-// bad 
-@value v-primary: #BF4040;
-
-// good
-$primaryColor: #BF4040;
 ```
 
 ```jsx
