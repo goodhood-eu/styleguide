@@ -7,7 +7,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
-  1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
+  1. [Hooks vs Class vs `React.createClass` vs stateless](#hooks-vs-class-vs-reactcreateclass-vs-stateless)
   1. [Mixins](#mixins)
   1. [Naming](#naming)
   1. [Alignment](#alignment)
@@ -24,13 +24,13 @@ This style guide is mostly based on the standards that are currently prevalent i
 ## Basic Rules
 
   - Only include one React component per file.
-    - However, multiple [Stateless, or Pure, Components](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are allowed per file. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
+    - However, multiple [Functional](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) are allowed per file. eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you’re initializing the app from a file that is not JSX.
 
-## Class vs `React.createClass` vs stateless
+## Hooks vs Class vs `React.createClass` vs stateless
 
-  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Prefer functional components with Hooks over `class extends React.Component` (when possible) or `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
     ```jsx
     // bad
@@ -50,7 +50,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     }
     ```
 
-    And if you don’t have state or refs, prefer functions over classes:
+    And if you can accomplish the same with Hooks or have no state at all:
 
     ```jsx
     // bad
@@ -362,7 +362,7 @@ We don’t recommend using indexes for keys if the order of items may change.
 
 ## Refs
 
-  - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
+  - Always use ref callbacks, createRef or useRef hook. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
 
     ```jsx
     // bad
@@ -588,9 +588,31 @@ We don’t recommend using indexes for keys if the order of items may change.
     export default Link;
     ```
 
-## CSS Modules
+## Hooks
+  Try to use functional components with Hooks whenever possible. Follow [rules of hooks](https://reactjs.org/docs/hooks-rules.html) and be aware of the need to use useMemo and useCallback to avoid unnecessary rerenders.
 
-### Specificity
+  Pay close attention to useEffect and try to define all of the variables inside of the hook body to avoid creating
+  too many dependencies.
+
+  ```jsx
+  const Button = () => {
+    const myFn = () => {...};
+    // bad, myFn is now a dynamic dependency
+    useEffect(() => myFn(), []);
+  }
+  ```
+
+  ```jsx
+  const Button = () => {
+    // good
+    useEffect(() => {
+      const myFn = () => {...};
+      return myFn();
+    }, []);
+  }
+  ```
+
+## CSS Modules
 
 Contrary to 'global css', CSS modules do not allow overriding styles inside components out of the box.
 
@@ -635,5 +657,24 @@ Contrary to 'global css', CSS modules do not allow overriding styles inside comp
           <span className={iconClassName}>icon</span>
         </button>
         )
+    }
+    ```
+
+  - If you need to pass custom style names make sure they are mapped outside of the Component render call. That way the object remains the same between renders.
+
+    ```jsx
+    const Button = () => {
+      // bad
+      const theme = { ... };
+      return <Button theme={buttonStyles} />;
+    }
+    ```
+
+    ```jsx
+    // good
+    const theme = { ... };
+
+    const Button = () => {
+      return <Button theme={buttonStyles} />;
     }
     ```
