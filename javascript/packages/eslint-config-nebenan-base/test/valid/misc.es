@@ -50,14 +50,14 @@ if (condition > true) {
 const sum = 5 + 5;
 
 const longCode = (
-  condition > 5 &&
-  condition === true &&
-  condition < 3 &&
-  condition > 5 &&
-  condition > 5 &&
-  condition > 5 &&
-  condition > 5 &&
   condition > 5
+  && condition === true
+  && condition < 3
+  && condition > 5
+  && condition > 5
+  && condition > 5
+  && condition > 5
+  && condition > 5
 );
 
 const comma = [1, 2];
