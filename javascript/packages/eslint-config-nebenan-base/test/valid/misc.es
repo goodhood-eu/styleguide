@@ -74,3 +74,6 @@ const commaStyle = [
   2,
   3,
 ];
+
+const optionalChaining = computedPropObj?.nonExistant?.notThere;
+const nullishCoalescing = computedPropObj.key ?? 300;
