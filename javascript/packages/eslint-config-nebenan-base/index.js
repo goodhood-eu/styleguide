@@ -22,7 +22,6 @@ module.exports = {
             extensions: ['.es', '.js', '.json'],
             alias: {
               '@': rootDir,
-              '@public': path.join(rootDir, 'public/'),
             }
           }
         }
