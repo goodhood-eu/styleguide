@@ -1360,7 +1360,7 @@ Inspired by: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascrip
     ```
 
   <a name="modules--absolute-imports"></a>
-  - [10.9](#modules--absolute-imports) **Webpack**: Use absolute imports to reach distant files in parent directories (eg. to break out of third, second and first level directories).
+  - [10.9](#modules--absolute-imports) **(Webpack) Recommendation**: Prevent long relative paths in import by using absolute paths.
     > Why? Relative imports traversing multiple parent directories can get unreadable.
 
     ```javascript
