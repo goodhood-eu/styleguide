@@ -20,13 +20,13 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-config-nebenan-base": "^1.1.0",
-    "stylelint": "^13.2.1"
+    "eslint-config-nebenan-base": "^1.4.0",
+    "stylelint": "^13.3.3"
   },
   "dependencies": {
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.14.2"
+    "stylelint-scss": "^3.17.1"
   },
   "peerDependencies": {
     "stylelint": "^12.0.0 || ^13.0.0"

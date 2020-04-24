@@ -4,7 +4,7 @@ module.exports = {
     'nebenan-base',
   ],
   rules: {
-    'react/jsx-filename-extension': ['error', { extensions: ['.es'] }],
+    'react/jsx-filename-extension': ['error', { extensions: ['.es', '.jsx'] }],
     'react/jsx-no-bind': 'off',
     'react/prop-types': ['error', { skipUndeclared: true }], // TODO: remove this check
     'react/forbid-prop-types': 'off',
