@@ -1,3 +1,8 @@
+const process = require('process');
+const path = require('path');
+
+const rootDir = process.cwd();
+
 module.exports = {
   extends: ['airbnb-base'],
   env: {
@@ -11,6 +16,16 @@ module.exports = {
           '.es',
         ],
       },
+      webpack: {
+        config: {
+          resolve: {
+            extensions: ['.es', '.js', '.json'],
+            alias: {
+              '@': rootDir,
+            }
+          }
+        }
+      }
     },
   },
   rules: {
