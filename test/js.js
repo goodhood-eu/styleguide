@@ -13,9 +13,9 @@ const processFile = (file) => {
   }
 };
 
-module.exports = (dir) => {
+module.exports = (dir, ext = 'js') => {
   const cli = new CLIEngine();
-  const result = cli.executeOnFiles(join(dir, '**/**.es'));
+  const result = cli.executeOnFiles(join(dir, `**/**.${ext}`));
 
   result.results.forEach(processFile);
 };

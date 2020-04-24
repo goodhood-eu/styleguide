@@ -1,7 +1,4 @@
-const process = require('process');
 const path = require('path');
-
-const rootDir = process.cwd();
 
 module.exports = {
   extends: ['airbnb-base'],
@@ -10,22 +7,12 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      node: {
-        extensions: [
-          '.js',
-          '.es',
+      alias: {
+        map: [
+          ['@', path.resolve(`${__dirname}/../../`)],
         ],
+        extensions: ['.es', '.js', '.jsx', '.json'],
       },
-      webpack: {
-        config: {
-          resolve: {
-            extensions: ['.es', '.js', '.json'],
-            alias: {
-              '@': rootDir,
-            }
-          }
-        }
-      }
     },
   },
   rules: {
