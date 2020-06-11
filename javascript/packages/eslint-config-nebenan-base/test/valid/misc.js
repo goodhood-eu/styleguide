@@ -74,3 +74,8 @@ const commaStyle = [
   2,
   3,
 ];
+
+// two empty lines are allowed
+
+
+// end of test
