@@ -7,4 +7,10 @@ class Inherited extends React.Component {
   }
 }
 
+var a = "" +
+        "" +
+        "" +
+    "" +
+  "123"
+
 const Pure = () => 'component';
