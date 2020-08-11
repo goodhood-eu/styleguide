@@ -1,0 +1,6 @@
+#!/bin/sh
+PACKAGES=`find . -iname packages -not -path "*/node_modules/*"  -exec find {} -maxdepth 1 -mindepth 1  \;`
+for PACKAGE in $PACKAGES
+do
+  (cd $PACKAGE && $@)
+done
