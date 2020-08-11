@@ -29,6 +29,7 @@ module.exports = {
     'react/destructuring-assignment': 'off', // bugged
     'react/jsx-one-expression-per-line': 'off',
     'react/no-this-in-sfc': 'off', // broken
+    'react/forbid-foreign-prop-types': 'off',
 
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/anchor-has-content': 'off',
