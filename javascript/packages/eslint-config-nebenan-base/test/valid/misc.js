@@ -77,5 +77,7 @@ const commaStyle = [
 
 // two empty lines are allowed
 
-
 // end of test
+
+const optionalChaining = computedPropObj?.nonExistant?.notThere;
+const nullishCoalescing = computedPropObj.key ?? 300;
