@@ -6,7 +6,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': ['error', { extensions: ['.es', '.jsx'] }],
     'react/jsx-no-bind': 'off',
-    'react/prop-types': ['error', { skipUndeclared: true }], // TODO: remove this check
+    'react/prop-types': ['error', { skipUndeclared: true }],
     'react/forbid-prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-did-mount-set-state': 'off',
