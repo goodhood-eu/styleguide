@@ -6,7 +6,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': ['error', { extensions: ['.es', '.jsx'] }],
     'react/jsx-no-bind': 'off',
-    'react/prop-types': ['error', { skipUndeclared: true }], // TODO: remove this check
+    'react/prop-types': ['error', { skipUndeclared: true }],
     'react/forbid-prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-did-mount-set-state': 'off',
@@ -29,7 +29,6 @@ module.exports = {
     'react/destructuring-assignment': 'off', // bugged
     'react/jsx-one-expression-per-line': 'off',
     'react/no-this-in-sfc': 'off', // broken
-    'react/forbid-foreign-prop-types': 'off',
 
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/anchor-has-content': 'off',
