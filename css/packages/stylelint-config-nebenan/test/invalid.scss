@@ -43,7 +43,7 @@
 }
 
 .extend-forbidden {
-  // expect: at-rule-blacklist
+  // expect: at-rule-disallowed-list
   @extend .parent;
 }
 

@@ -15,7 +15,7 @@ module.exports = {
     }],
 
     'at-rule-no-unknown': null,
-    'at-rule-blacklist': ['extend'],
+    'at-rule-disallowed-list': ['extend'],
 
     'block-opening-brace-newline-after': ['always'],
     'block-closing-brace-newline-before': ['always'],
