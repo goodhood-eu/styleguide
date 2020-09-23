@@ -4,6 +4,7 @@ const React = {};
 const Bool = (
   <div
     show
+
     hide={false}
   />
 );

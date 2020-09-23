@@ -28,6 +28,7 @@ module.exports = {
     'react/default-props-match-prop-types': 'off',
     'react/destructuring-assignment': 'off', // bugged
     'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-props-no-multi-spaces': 'off',
     'react/no-this-in-sfc': 'off', // broken
 
     'jsx-a11y/no-static-element-interactions': 'off',
