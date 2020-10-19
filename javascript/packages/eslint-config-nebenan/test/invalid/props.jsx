@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-const React = {};
-
 const Bool = (
   <div
     // expect: react/jsx-boolean-value

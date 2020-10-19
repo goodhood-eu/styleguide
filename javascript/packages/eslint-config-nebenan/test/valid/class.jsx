@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-const React = {};
+const Component = {};
 
-class Inherited extends React.Component {
+class Inherited extends Component {
   render() {
     return this.content;
   }

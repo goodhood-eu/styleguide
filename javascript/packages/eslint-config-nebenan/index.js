@@ -30,6 +30,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-props-no-multi-spaces': 'off',
     'react/no-this-in-sfc': 'off', // broken
+    'react/react-in-jsx-scope': 'off', // useless with new react transform
 
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/anchor-has-content': 'off',
