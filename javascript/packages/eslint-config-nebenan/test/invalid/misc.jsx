@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const React = {};
+const Component = {};
 
 // expect: react/jsx-wrap-multilines
 const Alignment = <div
@@ -23,7 +23,7 @@ const Ref = () => <div ref="hello" />;
 // expect: react/self-closing-comp
 const Empty = () => <div></div>;
 
-class RenderRequired extends React.Component {
+class RenderRequired extends Component {
   // expect: react/require-render-return
   render() {
     this.content = (<div />);

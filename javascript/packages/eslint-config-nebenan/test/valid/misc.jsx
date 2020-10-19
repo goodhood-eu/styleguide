@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const React = {};
+const Component = {};
 
 const Alignment = (
   <div
@@ -17,7 +17,7 @@ const Ref = () => <div ref={(el) => el} />;
 
 const Empty = () => <div />;
 
-class RenderRequired extends React.Component {
+class RenderRequired extends Component {
   render() {
     return <div>{this.content}</div>;
   }
