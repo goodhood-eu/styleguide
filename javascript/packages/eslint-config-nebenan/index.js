@@ -33,6 +33,8 @@ module.exports = {
     'react/no-this-in-sfc': 'off', // broken
     'react/react-in-jsx-scope': 'off', // useless with new react transform
 
+    'react-hooks/exhaustive-deps': 'off', // doesn't work well enough with custom hooks
+
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/anchor-has-content': 'off',
     'jsx-a11y/media-has-caption': 'off',
