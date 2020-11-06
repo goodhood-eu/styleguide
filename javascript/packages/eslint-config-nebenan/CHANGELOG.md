@@ -1,2 +1,3 @@
 ## v3.0.0 Breaking changes
-- Added rules for react hooks
+- Adds react-hooks/rules-of-hooks rule
+  https://reactjs.org/docs/hooks-rules.html#explanation
