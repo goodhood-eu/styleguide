@@ -6,7 +6,7 @@
   "readmeFilename": "README.md",
   "repository": "goodhood-eu/styleguide",
   "bugs": "https://github.com/goodhood-eu/styleguide/issues",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "keywords": [
     "linter",
     "config",
@@ -21,11 +21,11 @@
   },
   "devDependencies": {
     "eslint": "^7.6.0",
-    "react": "^16.13.1",
+    "react": "^17.0.1",
     "prop-types": "^15.7.2"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb": "18.2.0",
     "eslint-config-nebenan-base": "^1.6.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
