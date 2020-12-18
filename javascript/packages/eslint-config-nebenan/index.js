@@ -32,6 +32,7 @@ module.exports = {
     'react/jsx-props-no-multi-spaces': 'off',
     'react/no-this-in-sfc': 'off', // broken
     'react/react-in-jsx-scope': 'off', // useless with new react transform
+    'react/jsx-uses-react': 'off',
 
     'react-hooks/exhaustive-deps': 'off', // doesn't work well enough with custom hooks
 
