@@ -17,6 +17,9 @@ const parseSpec = (spec) => {
 };
 
 const findSpecLineIndex = (line, fileLines) => {
+  const mayBeFileError = line === 1;
+  if (mayBeFileError) return 0;
+
   for (let i = line - 2; i >= 0; i -= 1) {
     if (!fileLines[i].trim()) continue;
     return i;
