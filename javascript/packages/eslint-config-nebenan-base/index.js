@@ -18,6 +18,7 @@ module.exports = {
       },
     },
   },
+  plugins: ["unicorn"],
   rules: {
     'no-console': 'off',
     'no-restricted-syntax': [
@@ -53,5 +54,6 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/prefer-default-export': 'off',
     'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 0, maxEOF: 0 }],
+    "unicorn/filename-case": ["error", { "case": "snakeCase" }],
   },
 };
