@@ -1,3 +1,5 @@
+@import "nebenan-components/src/**/index.scss";
+
 .no,
 .nope {
   content: "declaration of multiple selectors";
@@ -8,6 +10,9 @@
 }
 
 .color-value {
+  // Long comment
+  //
+  // With empty lines
   content: "color value";
   color: #f1f1f1;
 }
