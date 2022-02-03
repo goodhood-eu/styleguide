@@ -4,6 +4,11 @@ import React from 'react';
 /* eslint-disable no-unused-vars */
 const Component = {};
 
+// expect: react/function-component-definition, func-style
+function FunctionExprComponent(props) {
+  return <div {...props} />;
+}
+
 // expect: react/jsx-wrap-multilines
 const Alignment = <div
   // expect: react/jsx-closing-bracket-location, react/jsx-indent-props
