@@ -47,6 +47,7 @@ module.exports = {
     'function-paren-newline': 'off', // forces to write illegible code
     'prefer-destructuring': 'off', // forces to write broken code!
     'no-control-regex': 'off',
+    'curly': ['error', 'multi-line'],
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
     'prefer-promise-reject-errors': 'off',
     'import/no-dynamic-require': 'off',
