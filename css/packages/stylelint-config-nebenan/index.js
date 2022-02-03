@@ -45,7 +45,7 @@ module.exports = {
     'scss/declaration-nested-properties': 'never',
     'scss/dollar-variable-pattern': '^[a-z0-9_\\-]+$',
     'scss/percent-placeholder-pattern': '^we-are-not-using-placeholders-at-this-time$',
-    'scss/at-import-partial-extension': null,
+    'scss/at-import-partial-extension': null, // needed for node-sass-glob-importer to work
     'scss/comment-no-empty': null,
 
     'order/order': [
