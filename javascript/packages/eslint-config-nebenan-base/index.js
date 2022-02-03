@@ -46,6 +46,9 @@ module.exports = {
     'object-curly-newline': 'off', // forces to write illegible code
     'function-paren-newline': 'off', // forces to write illegible code
     'prefer-destructuring': 'off', // forces to write broken code!
+    'default-param-last': 'off',
+    'no-restricted-exports': 'off',
+    'function-call-argument-newline': 'off',
     'no-control-regex': 'off',
     'curly': ['error', 'multi-line'],
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],

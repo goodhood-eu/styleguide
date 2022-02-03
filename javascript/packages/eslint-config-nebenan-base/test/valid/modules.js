@@ -11,3 +11,5 @@ const requireInFunc = () => require('path');
 const dynamicRequire = () => require(`${'path'}`);
 
 export const notDefault = 1;
+
+export { default } from 'eslint';
