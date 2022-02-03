@@ -38,3 +38,10 @@ const conditionReturn = (arg) => {
   }
   return false;
 };
+
+const defaultFirst = (isAdmin = false, id, anotherArg) => {};
+
+defaultFirst(
+  true, 1,
+  'bubb',
+);

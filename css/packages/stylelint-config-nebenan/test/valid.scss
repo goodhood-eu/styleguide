@@ -1,33 +1,38 @@
+@import "nebenan-components/src/**/index.scss";
+
 .no,
 .nope {
-  content: 'declaration of multiple selectors';
+  content: "declaration of multiple selectors";
 }
 
 .bad-naming {
-  content: 'selector naming';
+  content: "selector naming";
 }
 
 .color-value {
-  content: 'color value';
+  // Long comment
+  //
+  // With empty lines
+  content: "color value";
   color: #f1f1f1;
 }
 
 .semicolon {
-  content: 'semicolon';
+  content: "semicolon";
 }
 
 .nesting {
   .child-1 {
     .child-2 {
       .child-3 {
-        content: 'nesting';
+        content: "nesting";
       }
     }
   }
 }
 
 .new-line-after-brackets {
-  content: 'content';
+  content: "content";
 }
 
 .float-number {

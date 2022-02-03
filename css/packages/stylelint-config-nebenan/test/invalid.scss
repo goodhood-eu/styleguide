@@ -1,27 +1,28 @@
 // expect: selector-list-comma-newline-after
 .no, .nope {
-  content: 'declaration of multiple selectors';
+  content: "declaration of multiple selectors";
 }
 
 // expect: selector-class-pattern
 .bad_naming {
-  content: 'selector naming';
+  content: "selector naming";
 }
 
 // expect: selector-max-id
 #id-selector {
-  content: 'id selects';
+  content: "id selects";
 }
 
 .color-value {
-  content: 'color value';
+  content: "color value";
+
   // expect: color-named
   color: hotpink;
 }
 
 .semicolon {
   // expect: declaration-block-trailing-semicolon
-  content: 'semicolon'
+  content: "semicolon"
 }
 
 .nesting {
@@ -30,7 +31,7 @@
       .child-3 {
         // expect: max-nesting-depth
         .child-4 {
-          content: 'nesting that is too deep';
+          content: "nesting that is too deep";
         }
       }
     }
@@ -44,11 +45,11 @@
 
 .extend-forbidden {
   // expect: at-rule-disallowed-list
-  @extend .parent;
+  @extend %placeholder;
 }
 
 // expect: block-opening-brace-newline-after, block-closing-brace-newline-before
-.new-line-after-brackets { content: 'content'; }
+.new-line-after-brackets { content: "content"; }
 
 .float-number {
   // expect: number-leading-zero

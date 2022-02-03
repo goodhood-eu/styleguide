@@ -30,11 +30,11 @@ const operatorLineBreak = 1
 
 // expect: curly
 if (check > true)
-  // expect: nonblock-statement-body-position
+  // expect: curly, nonblock-statement-body-position
   console.warn('No braces');
 // expect: curly
 else
-  // expect: nonblock-statement-body-position
+  // expect: curly, nonblock-statement-body-position
   console.warn('No braces in else');
 
 if (check > true) {

@@ -22,3 +22,5 @@ class RenderRequired extends Component {
     return <div>{this.content}</div>;
   }
 }
+
+const NestedComponentProp = () => <Component getSwitch={(item) => <Empty>{item}</Empty>} />;

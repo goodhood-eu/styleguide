@@ -33,6 +33,14 @@ module.exports = {
     'react/no-this-in-sfc': 'off', // broken
     'react/react-in-jsx-scope': 'off', // useless with new react transform
     'react/jsx-uses-react': 'off',
+    'react/function-component-definition': ['error', {
+      'namedComponents': 'arrow-function',
+      'unnamedComponents': 'arrow-function',
+    }],
+    'react/no-unused-class-component-methods': 'off',
+    'react/no-unstable-nested-components': ['error', {
+      "allowAsProps": true, // we don't follow the renderBlubb naming convention out of historical reasons
+    }],
 
     'react-hooks/exhaustive-deps': 'off', // doesn't work well enough with custom hooks
 

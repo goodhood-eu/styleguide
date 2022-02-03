@@ -1,5 +1,5 @@
 const { join } = require('path');
-const { CLIEngine } = require(require.resolve('eslint', { paths: [process.cwd()] }));
+const { ESLint } = require(require.resolve('eslint', { paths: [process.cwd()] }));
 const { collectLinterErrors, createTestErrorsCollector } = require('./utils');
 
 
@@ -9,13 +9,17 @@ const processFile = (file) => {
 
   if (errorsTest.length) {
     console.error(`Errors found:\n${errorsTest.join('\n')}`);
-    process.exit(1);
+    return false;
   }
+
+  return true;
 };
 
-module.exports = (dir, ext = 'js') => {
-  const cli = new CLIEngine();
-  const result = cli.executeOnFiles(join(dir, `**/**.${ext}`));
+module.exports = async(dir, ext = 'js') => {
+  const eslint = new ESLint();
+  const result = await eslint.lintFiles(join(dir, `**/**.${ext}`));
 
-  result.results.forEach(processFile);
+  const isSuccess = result.map(processFile).every(r => r);
+
+  process.exit(isSuccess ? 0 : 1)
 };
