@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   extends: ['airbnb-base'],
   parserOptions: {
-    ecmaVersion: 2020
+    ecmaVersion: 2020,
   },
   env: {
     browser: true,
@@ -18,7 +18,7 @@ module.exports = {
       },
     },
   },
-  plugins: ["unicorn"],
+  plugins: ['unicorn'],
   rules: {
     'no-console': 'off',
     'no-restricted-syntax': [
@@ -50,7 +50,7 @@ module.exports = {
     'no-restricted-exports': 'off',
     'function-call-argument-newline': 'off',
     'no-control-regex': 'off',
-    'curly': ['error', 'multi-line'],
+    curly: ['error', 'multi-line'],
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
     'prefer-promise-reject-errors': 'off',
     'import/no-dynamic-require': 'off',
@@ -58,6 +58,6 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/prefer-default-export': 'off',
     'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 0, maxEOF: 0 }],
-    "unicorn/filename-case": ["error", { "case": "snakeCase" }],
+    'unicorn/filename-case': ['error', { case: 'snakeCase' }],
   },
 };

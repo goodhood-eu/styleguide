@@ -34,16 +34,15 @@ module.exports = {
     'react/react-in-jsx-scope': 'off', // useless with new react transform
     'react/jsx-uses-react': 'off',
     'react/function-component-definition': ['error', {
-      'namedComponents': 'arrow-function',
-      'unnamedComponents': 'arrow-function',
+      namedComponents: 'arrow-function',
+      unnamedComponents: 'arrow-function',
     }],
     'react/no-unused-class-component-methods': 'off',
     'react/no-unstable-nested-components': ['error', {
-      "allowAsProps": true, // we don't follow the renderBlubb naming convention out of historical reasons
+      // we don't follow the renderBlubb naming convention out of historical reasons
+      allowAsProps: true,
     }],
-
     'react-hooks/exhaustive-deps': 'off', // doesn't work well enough with custom hooks
-
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/anchor-has-content': 'off',
     'jsx-a11y/media-has-caption': 'off',
@@ -52,5 +51,6 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/anchor-is-valid': 'off', // bugged
+    'import/no-unresolved': [2, { ignore: ['\\.svg\\?url'] }],
   },
 };
