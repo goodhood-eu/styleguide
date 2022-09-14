@@ -4,7 +4,7 @@
 
 Extends [`eslint-config-airbnb-base`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base).
 
-A shareable config to enforce GoodHood-EU Styleguide: https://github.com/goodhood-eu/styleguide
+A shareable config (without React plugins) to enforce GoodHood-EU Styleguide: https://github.com/goodhood-eu/styleguide
 
 To see the rules that this config uses, please read the [config itself](./index.js).
 
