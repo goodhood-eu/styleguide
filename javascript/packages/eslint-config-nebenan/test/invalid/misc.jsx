@@ -15,7 +15,10 @@ const Alignment = <div
                   className="class" />;
 
 // expect: no-multi-spaces
-const Spacing = <div className='class'  />;
+const Spacing = <div className="class"  />;
+
+// expect: jsx-quotes
+const Quotes = <div className='class' />;
 
 // expect: react/jsx-curly-spacing, react/jsx-curly-brace-presence
 const CurlySpacing = <div className={ 'class' } />;
