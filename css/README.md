@@ -351,12 +351,8 @@ We prefer using mixins over functions. If a function is absolutely necessary, do
 ## CSS Modules
 
 - Prefer using CSS Modules over global css code
-- Use camelCase for class names
-- Use simple class and variable names since both are scoped to the module
 - Always use `.module.css` or `.module.scss` extension
-- Do not expect any scss variables or mixins to be defined. You have to import them yourself.
-- Use Sass whenever possible over similar CSS module functionality (composition, variables, import)
-- CSS or Sass specific rules still apply (CSS Modules rules take precedence)
+- Use camelCase for class names
 
 ```scss
 // bad
@@ -377,6 +373,26 @@ import styles from "./foo.module.scss"
 
 // bad
 return <div className={styles['foo-bar']}>
+
+// good
+return <div className={styles.fooBar}>
+```
+
+- Use simple class and variable names since both are scoped to the module
+- Do not expect any scss variables or mixins to be defined. You have to import them yourself.
+- Use Sass whenever possible over similar CSS module functionality (composition, variables, import)
+- CSS or Sass specific rules still apply (CSS Modules rules take precedence)
+- inline class names, only extract if they get very very long or when they are used multiple times
+
+```jsx
+import styles from "./foo.module.scss"
+
+// ...
+
+// bad
+const someClassName = styles.fooBar;
+
+return <div className={someClassName}>
 
 // good
 return <div className={styles.fooBar}>
