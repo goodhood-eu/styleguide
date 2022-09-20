@@ -51,6 +51,7 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/anchor-is-valid': 'off', // bugged
+    'jsx-quotes': ['error', 'prefer-double'],
     'import/no-unresolved': [2, { ignore: ['\\.svg\\?url'] }],
   },
 };

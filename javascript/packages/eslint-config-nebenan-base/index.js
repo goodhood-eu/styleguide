@@ -37,7 +37,7 @@ module.exports = {
     'no-floating-decimal': 'off',
     'func-names': ['error', 'never'],
     'func-style': ['error', 'expression'], // completely disables function statements
-    camelcase: 'off',
+    'camelcase': 'off',
     'consistent-return': 'off',
     'no-mixed-operators': ['error', { allowSamePrecedence: true }],
     'no-param-reassign': ['error', { props: false }],
@@ -50,7 +50,7 @@ module.exports = {
     'no-restricted-exports': 'off',
     'function-call-argument-newline': 'off',
     'no-control-regex': 'off',
-    curly: ['error', 'multi-line'],
+    'curly': ['error', 'multi-line'],
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
     'prefer-promise-reject-errors': 'off',
     'import/no-dynamic-require': 'off',
