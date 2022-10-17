@@ -588,6 +588,24 @@ We don’t recommend using indexes for keys if the order of items may change.
     export default Link;
     ```
 
+  - We don't want to define default props in `propTypes` but rather use JS default functional arguments
+    
+  ```jsx
+  // bad
+  const SpecialBanner = () => {
+    // ...
+  }
+  
+  SpecialBanner.defaultProps = {
+    isActive:  true,
+  }
+
+  // good
+  const SpecialBanner = ({ isActive = true } ) => {
+    // ...
+  }
+  ```
+
 ## Hooks
   Try to use functional components with Hooks whenever possible. Follow [rules of hooks](https://reactjs.org/docs/hooks-rules.html) and be aware of the need to use useMemo and useCallback to avoid unnecessary rerenders.
 
