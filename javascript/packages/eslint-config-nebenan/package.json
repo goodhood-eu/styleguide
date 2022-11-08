@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "test": "node ../../../test ./test js jsx",
+    "test": "node ../../../test ./test js jsx && node ../../../test ./test js tsx",
     "prepublishOnly": "npm test"
   },
   "devDependencies": {
