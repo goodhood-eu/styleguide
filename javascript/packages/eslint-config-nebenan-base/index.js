@@ -14,7 +14,7 @@ module.exports = {
         map: [
           ['@', path.resolve(`${__dirname}/../../`)],
         ],
-        extensions: ['.es', '.js', '.jsx', '.json'],
+        extensions: ['.es', '.js', '.jsx', '.ts', '.tsx', '.json'],
       },
     },
   },
