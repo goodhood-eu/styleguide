@@ -8,7 +8,6 @@ This repository serves as a reference for our coding standards. You can read the
 - [React](react/README.md)
 - [CSS](css/README.md)
 - [HTML](html/README.md)
-- [Pug](pug/README.md)
 
 ## Common section
 
