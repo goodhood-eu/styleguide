@@ -52,6 +52,6 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/anchor-is-valid': 'off', // bugged
     'jsx-quotes': ['error', 'prefer-double'],
-    'import/no-unresolved': [2, { ignore: ['\\.svg\\?url'] }],
+    'import/no-unresolved': [2, { ignore: ['\\.svg\\?url', '\\.webp\\?width'] }],
   },
 };
