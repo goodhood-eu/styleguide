@@ -21,5 +21,6 @@ module.exports = {
   },
   rules: {
     'react/prop-types': 'off',
+    'func-style': 'off', // function declarations allows nicer generics syntax in tsx files
   },
 };
