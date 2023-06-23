@@ -16,12 +16,6 @@ module.exports = {
     'at-rule-no-unknown': null,
     'at-rule-disallowed-list': ['extend'],
 
-    'block-opening-brace-newline-after': ['always'],
-    'block-closing-brace-newline-before': ['always'],
-    'block-closing-brace-newline-after': ['always', {
-      ignoreAtRules: ['if', 'else'],
-    }],
-
     'color-named': 'never',
 
     'declaration-empty-line-before': null,
@@ -29,7 +23,6 @@ module.exports = {
     'function-name-case': 'lower',
 
     'max-nesting-depth': [3, { ignoreAtRules: ['media'] }],
-    'number-leading-zero': 'never',
     'no-descending-specificity': null,
 
     'selector-max-id': 0,
