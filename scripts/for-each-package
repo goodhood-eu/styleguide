@@ -1,5 +1,5 @@
 #!/bin/sh
-PACKAGES=`find . -iname packages -not -path "*/node_modules/*"  -exec find {} -maxdepth 1 -mindepth 1  \;`
+PACKAGES=`find . -iname packages -not -path "*/node_modules/*" -not -path "*/.git/*"  -exec find {} -maxdepth 1 -mindepth 1  \;`
 EXIT_STATUS=0
 
 for PACKAGE in $PACKAGES
