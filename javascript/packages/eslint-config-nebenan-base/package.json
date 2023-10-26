@@ -1,9 +1,8 @@
 {
   "name": "eslint-config-nebenan-base",
   "description": "Shareable GoodHood-EU styleguide config for eslint",
-  "author": "Nebenan.de <max@nebenan.de>",
+  "author": "Good Hood GmbH <tech@nebenan.de>",
   "license": "MIT",
-  "readmeFilename": "README.md",
   "repository": "goodhood-eu/styleguide",
   "bugs": "https://github.com/goodhood-eu/styleguide/issues",
   "version": "2.0.3",
