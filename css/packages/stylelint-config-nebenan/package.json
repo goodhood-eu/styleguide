@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "github:goodhood-eu/styleguide",
   "bugs": "https://github.com/goodhood-eu/styleguide/issues",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "keywords": [
     "linter",
     "config",
@@ -21,10 +21,10 @@
     "prepublishOnly": "npm test"
   },
   "dependencies": {
-    "stylelint-config-standard": "^33.0.0",
-    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "stylelint-order": "^6.0.3",
-    "stylelint-scss": "^5.0.1"
+    "stylelint-scss": "^5.2.1"
   },
   "peerDependencies": {
     "stylelint": ">=15.0.0"
